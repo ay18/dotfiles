@@ -85,6 +85,7 @@ alias cellar='cd /usr/local/Cellar'
 alias devgd='cd ~/Google\ Drive/_dev'
 
 # symlinked directories (remember to symlink these in ~ for convenience)
+alias dotfiles='cd ~/Google\ Drive/_dev/dotfiles'
 alias envvars='cd ~/Google\ Drive/_dev/env-vars'
 
 # personal project directories
