@@ -58,7 +58,7 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 
 # general bash commands
 alias rm='rmtrash'
-alias ls='ls -a'
+alias ls='ls -aFG'
 alias mkdir='mkdir -p'
 
 # dev tools
