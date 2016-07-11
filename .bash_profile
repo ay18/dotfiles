@@ -17,8 +17,8 @@ export PS1="\n\[\033[38;5;86m\]\u\[$(tput sgr0)\] @ \[\033[38;5;86m\]\w\[$(tput 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # environment variables
-if [ "$(ls -A ~/env-vars)" ]; then
-  for f in ~/env-vars/*; do source $f; done
+if [ "$(ls -A ~/devgd/env-vars)" ]; then
+  for f in ~/devgd/env-vars/*; do source $f; done
 fi
 
 #=============================================================
