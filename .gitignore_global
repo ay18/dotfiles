@@ -1,3 +1,13 @@
+# Editor Generated
+------------------
 *~
+
+# golang
+------------------
+**/vendor/
+
+
+# OSX
+------------------
 .DS_Store
 .tags*

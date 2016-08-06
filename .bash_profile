@@ -29,6 +29,9 @@ fi
 export GOPATH=$HOME/golang
 export PATH=$PATH:$GOPATH/bin
 
+# direnv
+eval "$(direnv hook bash)"
+
 # fzf
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
 
@@ -69,7 +72,8 @@ alias g++='g++ -Wall -Wconversion -pedantic -std=c++11'
 alias webpack='webpack --config webpack.config.prod.js --watch'
 alias webpackdev='webpack-dev-server --config webpack.config.dev.js --watch'
 
-# other tools
+# applications
+alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
 
 # files
 alias hosts='sudo $EDITOR /etc/hosts'
@@ -90,8 +94,10 @@ alias envvars='cd ~/Google\ Drive/_dev/env-vars'
 
 # personal project directories
 alias dev='cd ~/dev-local/personal'
+alias notes='cd ~/dev-local/notes'
 alias gowork='cd $GOPATH'
-alias godev='cd $GOPATH/src/github.com/sksea'
+alias godev='cd $GOPATH/src/gitlab.com/sksea'
+alias godev-pub='cd $GOPATH/src/github.com/sksea'
 alias learnreact='cd ~/dev-local/personal/learn-react'
 alias learnrails='cd ~/dev-local/personal/learn-rails'
 
