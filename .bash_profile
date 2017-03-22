@@ -9,31 +9,42 @@
 #=============================================================
 EDITOR="vim"
 
-# bash prompt
-export PS1="\n\[\033[38;5;86m\]\u\[$(tput sgr0)\] @ \[\033[38;5;86m\]\w\[$(tput sgr0)\]\[\033[38;5;9m\]\$(parse_git_branch)\[$(tput sgr0)\]\n$ \[$(tput sgr0)\]"
+# bash prompt PS1
+# colors
+export clr="\[$(tput sgr0)\]"
+export c0="$clr\[\033[38;5;39m\]"
+export c1="$clr\[\033[38;5;228m\]"
+export c2="$clr\[\033[38;5;203m\]"
 
+export PS1="\n$c0\u $c2: $c1\W $c2\$(parse_git_branch)\n> $clr"
 
 # set terminal tab name to current directory
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 # environment variables
-if [ "$(ls -A ~/devgd/env-vars)" ]; then
-  for f in ~/devgd/env-vars/*; do source $f; done
-fi
+#source ~/.global_env_vars.sh
 
 #=============================================================
 # PLUGINS
 #=============================================================
 
 # golang
-export GOPATH=$HOME/golang
+export GOPATH=$HOME/dev-local/golang
 export PATH=$PATH:$GOPATH/bin
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# fzf
+[ -f ~/.fzf.bash  ] && source ~/.fzf.bash
 
 # direnv
 eval "$(direnv hook bash)"
 
 # fzf
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
+
 
 # brew-bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
@@ -51,8 +62,8 @@ parse_git_branch() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Google Cloud SDK
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+#source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+#source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
 
 
 #=============================================================
@@ -66,11 +77,13 @@ alias mkdir='mkdir -p'
 
 # dev tools
 alias pip='pip3'
+alias pipls='pip list --format=columns'
 alias npmls='npm -g ls --depth=0'
 alias npmu='npm-check-updates'
 alias g++='g++ -Wall -Wconversion -pedantic -std=c++11'
 alias webpack='webpack --config webpack.config.prod.js --watch'
 alias webpackdev='webpack-dev-server --config webpack.config.dev.js --watch'
+#alias python='python3'
 
 # applications
 alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
@@ -82,53 +95,20 @@ alias setprofile='. ~/.bash_profile'
 alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
+alias envvars='$EDITOR ~/.global_env_vars.sh'
 
 # directories
 alias drive='cd ~/Google\ Drive'
 alias cellar='cd /usr/local/Cellar'
-alias devgd='cd ~/Google\ Drive/_dev'
+alias devgd='cd ~/Google\ Drive/dev'
 
 # symlinked directories (remember to symlink these in ~ for convenience)
-alias dotfiles='cd ~/Google\ Drive/_dev/dotfiles'
-alias envvars='cd ~/Google\ Drive/_dev/env-vars'
+alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 
 # personal project directories
 alias dev='cd ~/dev-local/personal'
+alias sb='cd ~/dev-local/sandbox'
 alias notes='cd ~/dev-local/notes'
-alias golang='cd $HOME/golang'
-alias godev='cd $HOME/golang/src/gitlab.com/sksea'
-alias godev-pub='cd $GOPATH/src/github.com/sksea'
-alias learnreact='cd ~/dev-local/personal/learn-react'
-alias learnrails='cd ~/dev-local/personal/learn-rails'
-
-# posse commands
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias fstart='foreman start -f Procfile-foreman'
-alias mysql='mysql -u root -p'
-alias rs='rails s -p '
-alias rc='rails c'
-alias rsstg='RAILS_ENV=staging rails s -p '
-alias rcstg="RAILS_ENV=staging rails c"
-
-# lirx commands
-alias ngrok-linserv='ngrok http -host-header=rewrite devapi.localhost.local:3040'
-alias restart-linserv='aptible restart --app lirx-main-staging'
-alias ssh-linauth='aptible ssh --app lirx-auth-staging'
-alias ssh-linserv='aptible ssh --app lirx-main-staging'
-
-# posse directories
-alias possedrive='cd ~/Google\ Drive/posse-drive'
-
-# posse project directories
-alias posse='cd ~/dev-local/posse'
-alias dst='cd ~/dev-local/posse/download-site-template'
-alias acustom='cd ~/dev-local/posse/acustom-server'
-alias zargo='cd ~/dev-local/posse/zargo-api-server'
-alias linserv='cd ~/dev-local/posse/lindenwood-server'
-alias linauth='cd ~/dev-local/posse/lindenwood-auth-server'
-alias feeti='cd ~/dev-local/posse/feeti-server'
-alias oak='cd ~/dev-local/posse/posse-oak'
 
 # school
 #alias bing='ssh ayee5@remote.cs.binghamton.edu'

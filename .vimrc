@@ -8,13 +8,17 @@ call plug#begin('~/.vim/plugged')
 
 " Install plugs via their github repos.
 
-
 Plug 'w0ng/vim-hybrid'
 
 " ycm: requires compiling with cmake. install cmake with 'brew install cmake'.
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.py
 Plug 'valloric/youcompleteme'
+
+" temporary fix for YCM when vim resolves $PATH incorrectly and selects wrong
+" python version.
+" In vim, use ':py import sys; print(sys.executable)' to check py version.
+let $PATH='/usr/bin/:'.$PATH
 
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
@@ -85,3 +89,4 @@ let g:netrw_liststyle=3                           "explore mode list style
 nnoremap <leader>h :nohl<CR>                      "map key for unhighlight
 
 filetype plugin on
+
