@@ -109,6 +109,7 @@ alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 alias dev='cd ~/dev-local/personal'
 alias sb='cd ~/dev-local/sandbox'
 alias notes='cd ~/dev-local/notes'
+alias lab='cd ~/dev-local/lab'
 
 # school
 #alias bing='ssh ayee5@remote.cs.binghamton.edu'
