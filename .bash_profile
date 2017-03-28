@@ -1,7 +1,7 @@
 
 #                 =====================
 #                ||     Andy Yee      ||
-#                ||   Bash Profile    ||
+#                ||      bashrc       ||
 #                 =====================
 
 #=============================================================
@@ -9,24 +9,29 @@
 #=============================================================
 EDITOR="vim"
 
-# bash prompt PS1
+# Bash prompt PS1
 # colors
-export clr="\[$(tput sgr0)\]"
-export c0="$clr\[\033[38;5;39m\]"
-export c1="$clr\[\033[38;5;228m\]"
-export c2="$clr\[\033[38;5;203m\]"
+clr="\[$(tput sgr0)\]"
+c0="$clr\[\033[38;5;39m\]"
+c1="$clr\[\033[38;5;228m\]"
+c2="$clr\[\033[38;5;203m\]"
+triangle="`echo -e '\u25B2'`"
 
-export PS1="\n$c0\u $c2: $c1\W $c2\$(parse_git_branch)\n> $clr"
+# prompt
+export PS1="\n$c0\u $c2$triangle $c1\W $c2\$(parse_git_branch)\n> $clr"
 
-# set terminal tab name to current directory
+# Set terminal tab name to current directory.
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
-# environment variables
-#source ~/.global_env_vars.sh
 
 #=============================================================
 # PLUGINS
 #=============================================================
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Update PATH for homebrew.
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 # golang
 export GOPATH=$HOME/dev-local/golang
@@ -42,10 +47,6 @@ export NVM_DIR="$HOME/.nvm"
 # direnv
 eval "$(direnv hook bash)"
 
-# fzf
-[ -f ~/.fzf.bash  ] && source ~/.fzf.bash
-
-
 # brew-bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 	. $(brew --prefix)/etc/bash_completion
@@ -58,13 +59,6 @@ source ~/.git-completion.bash
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Google Cloud SDK
-#source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-#source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
-
 
 #=============================================================
 # ALIASES
@@ -90,8 +84,6 @@ alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
 
 # files
 alias hosts='sudo $EDITOR /etc/hosts'
-alias profile='$EDITOR ~/.bash_profile'
-alias setprofile='. ~/.bash_profile'
 alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
