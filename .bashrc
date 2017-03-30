@@ -102,11 +102,3 @@ alias dev='cd ~/dev-local/personal'
 alias sb='cd ~/dev-local/sandbox'
 alias notes='cd ~/dev-local/notes'
 alias lab='cd ~/dev-local/lab'
-
-# school
-#alias bing='ssh ayee5@remote.cs.binghamton.edu'
-#alias school='cd ~/Google\ Drive/school-2015-fall/'
-#alias mntoop='cd ~/Develop/mount/ayee5/oop-fall-15'     # sshfs
-#alias mntpl='cd ~/Develop/mount/ayee5/pl-fall-15'       # sshfs
-#alias rmntbing='sshfs ayee5@remote.cs.binghamton.edu:/import/linux/home/ayee5/Desktop ~/Develop/mount/ayee5'
-#alias umntbing='umount ~/Develop/mount/ayee5'
