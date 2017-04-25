@@ -1,8 +1,4 @@
-
-#                 =====================
-#                ||     Andy Yee      ||
-#                ||      bashrc       ||
-#                 =====================
+# .bashrc : Andy Yee
 
 #=============================================================
 # CONFIG
@@ -11,14 +7,14 @@ EDITOR="vim"
 
 # Bash prompt PS1
 # colors
-clr="\[$(tput sgr0)\]"
-c0="$clr\[\033[38;5;39m\]"
-c1="$clr\[\033[38;5;228m\]"
-c2="$clr\[\033[38;5;203m\]"
-triangle="`echo -e '\u25B2'`"
+CLR="\[$(tput sgr0)\]"
+C_BLUE="$CLR\[\033[38;5;39m\]"
+C_YELLOW="$CLR\[\033[38;5;228m\]"
+C_RED="$CLR\[\033[38;5;203m\]"
+TRI="`echo -e '\u25B2'`"
 
 # prompt
-export PS1="\n$c0\u $c2$triangle $c1\W $c2\$(parse_git_branch)\n> $clr"
+export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
 # Set terminal tab name to current directory.
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
@@ -43,6 +39,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # fzf
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
+# remap fzf in bash.
+if [ $BASH_VERSINFO -gt 3  ]; then
+  bind -r "\C-t"
+  bind -x '"\C-e": "fzf-file-widget"'
+fi
 
 # direnv
 eval "$(direnv hook bash)"
@@ -64,12 +65,12 @@ parse_git_branch() {
 # ALIASES
 #=============================================================
 
-# general bash commands
+# system
 alias rm='rmtrash'
 alias ls='ls -aFG'
 alias mkdir='mkdir -p'
 
-# dev tools
+# dev
 alias pip='pip3'
 alias pipls='pip list --format=columns'
 alias npmls='npm -g ls --depth=0'
@@ -79,22 +80,19 @@ alias webpack='webpack --config webpack.config.prod.js --watch'
 alias webpackdev='webpack-dev-server --config webpack.config.dev.js --watch'
 #alias python='python3'
 
-# applications
-alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
-
 # files
 alias hosts='sudo $EDITOR /etc/hosts'
 alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
+alias reload='. ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
-alias envvars='$EDITOR ~/.global_env_vars.sh'
+# alias envvars='$EDITOR ~/.global_env_vars.sh'
 
 # directories
 alias drive='cd ~/Google\ Drive'
 alias cellar='cd /usr/local/Cellar'
 alias devgd='cd ~/Google\ Drive/dev'
-
-# symlinked directories (remember to symlink these in ~ for convenience)
+# dotfiles is a symlinked directory, many symlinked files depend on it.
 alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 
 # personal project directories
@@ -102,3 +100,18 @@ alias dev='cd ~/dev-local/personal'
 alias sb='cd ~/dev-local/sandbox'
 alias notes='cd ~/dev-local/notes'
 alias lab='cd ~/dev-local/lab'
+alias forks='cd ~/dev-local/forks'
+
+# git
+alias g-s="git status"
+alias g-dc="git diff --cached"
+alias g-d="git diff"
+alias g-c="git commit"
+
+# app academy
+alias aa='cd ~/dev-local/personal/aa/alpha'
+alias irbload='irb -I . -r'
+alias bex='bundle exec'
+
+# utilities
+alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
