@@ -1,4 +1,4 @@
-# .bashrc : Andy Yee
+# .bashrc Andy Yee
 
 #=============================================================
 # CONFIG
@@ -111,7 +111,7 @@ alias g-c="git commit"
 # app academy
 alias aa='cd ~/dev-local/personal/aa/alpha'
 alias irbload='irb -I . -r'
-alias bex='bundle exec'
+alias be='bundle exec'
 
 # utilities
 alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
