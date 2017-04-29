@@ -44,7 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 # remap fzf in bash.
 if [ $BASH_VERSINFO -gt 3  ]; then
   bind -r "\C-t"
-  bind -x '"\C-e": "fzf-file-widget"'
+  bind -x '"\C-f": "fzf-file-widget"'
 fi
 
 # direnv
