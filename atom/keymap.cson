@@ -1,0 +1,82 @@
+# Atom keymap.cson
+# ======================================================
+# https://github.com/sksea/dotfiles
+# andy.sksea@gmail.com
+
+# Atom Workspace 
+# ------------------------------------------------------
+'.workspace .editor:not([mini])':
+  # Panes & windows navigation
+  'cmd-alt-v': 'pane:split-right'
+  'cmd-]': 'window:focus-pane-on-right'
+  'cmd-[': 'window:focus-pane-on-left'
+  
+  'cmd-shift-e': 'tree-view:toggle-focus'
+  
+  'cmd-e': 'fuzzy-finder:toggle-file-finder'
+  'cmd-shift-d': 'fuzzy-finder:toggle-git-status-finder'
+  
+
+# Atom Editor 
+# ------------------------------------------------------
+'atom-text-editor.autocomplete-active:not([mini])':
+  'tab': 'autocomplete-plus:confirm'
+  'ctrl-i': 'core:move-up'
+  'ctrl-k': 'core:move-down'
+  
+'atom-text-editor:not([mini])':
+  'alt-.': 'find-and-replace:find-next'
+  'alt-,': 'find-and-replace:find-previous'
+  'alt-d': 'find-and-replace:select-all'
+  
+  
+  'tab': 'editor:indent-selected-rows'
+  'cmd-ctrl-i': 'editor:move-line-up'
+  'cmd-ctrl-k': 'editor:move-line-down'
+  
+  'ctrl-i': 'window:toggle-invisibles'
+  'cmd-g': 'go-to-line:toggle'
+  'cmd-m': 'bracket-matcher:select-inside-brackets'
+
+  # Bookmarks
+  'cmd-2': 'bookmarks:toggle-bookmark'
+  'ctrl-2': 'bookmarks:jump-to-next-bookmark'
+  'ctrl-shift-2': 'bookmarks:jump-to-previous-bookmark'
+  'cmd-alt-2': 'bookmarks:view-all'
+
+  # Git Diff Details
+  'ctrl-cmd-u': 'git-diff-details:undo'
+  
+  
+# Vim Mode Plus
+# ------------------------------------------------------
+'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.find-pending)':
+  
+  'h': 'vim-mode-plus:activate-insert-mode'
+  
+  # Movement
+  'i': 'vim-mode-plus:move-up'
+  'k': 'vim-mode-plus:move-down'
+  'j': 'vim-mode-plus:move-left'
+  'l': 'vim-mode-plus:move-right'
+  # 'e'
+  'E': 'vim-mode-plus:move-to-previous-end-of-word'
+  # 'w'
+  'W': 'vim-mode-plus:move-to-previous-word'
+  'q': 'vim-mode-plus:move-to-next-subword'
+  'Q': 'vim-mode-plus:move-to-previous-subword'
+  's': 'vim-mode-plus:move-to-next-string'
+  'S': 'vim-mode-plus:move-to-previous-string'
+  
+  'ctrl-a': 'vim-mode-plus:move-to-first-character-of-line'
+  'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
+  
+  # Normal Mode Edit
+  'c s': 'vim-mode-plus:change-surround-any-pair'
+  
+  # 'space f': 'narrow:fold'
+  'g d': 'vim-mode-plus:select-occurrence'
+  
+  'g p': 'vim-mode-plus:put-after-with-auto-indent'
+  'g P': 'vim-mode-plus:put-before-with-auto-indent'
+  

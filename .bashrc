@@ -54,7 +54,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 fi
 
 # Git-bash completion
-source ~/.git-completion.bash
+#source ~/.git-completion.bash
 
 # Git branch in prompt.
 parse_git_branch() {
