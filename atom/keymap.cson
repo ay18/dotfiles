@@ -1,10 +1,10 @@
-# Atom keymap.cson
-# ======================================================
-# https://github.com/sksea/dotfiles
-# andy.sksea@gmail.com
+# atom keymap.cson
+# ===============================================================
+# * https://github.com/sksea/dotfiles
+# * andy.sksea@gmail.com
 
 # Atom Workspace 
-# ------------------------------------------------------
+# ---------------------------------------------------------------
 '.workspace .editor:not([mini])':
   # Panes & windows navigation
   'cmd-alt-v': 'pane:split-right'
@@ -18,7 +18,7 @@
   
 
 # Atom Editor 
-# ------------------------------------------------------
+# ---------------------------------------------------------------
 'atom-text-editor.autocomplete-active:not([mini])':
   'tab': 'autocomplete-plus:confirm'
   'ctrl-i': 'core:move-up'
@@ -49,7 +49,7 @@
   
   
 # Vim Mode Plus
-# ------------------------------------------------------
+# ---------------------------------------------------------------
 'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.find-pending)':
   
   'h': 'vim-mode-plus:activate-insert-mode'

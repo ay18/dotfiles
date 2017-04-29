@@ -1,8 +1,10 @@
-# .bashrc Andy Yee
+# .bashrc
+# ==============================================================
+# * https://github.com/sksea/dotfiles
+# * andy.sksea@gmail.com
 
-#=============================================================
 # CONFIG
-#=============================================================
+# ---------------------------------------------------------------
 EDITOR="vim"
 
 # Bash prompt PS1
@@ -19,9 +21,9 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 # Set terminal tab name to current directory.
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
-#=============================================================
+
 # PLUGINS
-#=============================================================
+# ---------------------------------------------------------------
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -61,9 +63,9 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-#=============================================================
+
 # ALIASES
-#=============================================================
+# ---------------------------------------------------------------
 
 # system
 alias rm='rmtrash'

@@ -1,8 +1,8 @@
-"sksea [vimrc standard]
-
-"============================================================================
-" Plugins - managed by vim plug
-"============================================================================
+" .vimrc
+" ---------------------------------------------------------------
+" * https://github.com/sksea/dotfiles
+" * andy.sksea@gmail.com
+" * Plugins - managed by vim plug
 
 call plug#begin('~/.vim/plugged')
 
@@ -46,9 +46,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-"============================================================================
 " Aesthetic
-"============================================================================
+" ---------------------------------------------------------------
 syntax on
 set background=dark
 set nu
@@ -57,9 +56,8 @@ set hlsearch
 let base16colorspace=256
 colorscheme hybrid
 
-"============================================================================
 " Behavior
-"============================================================================
+" ---------------------------------------------------------------
 let mapleader=" "                                 "set leader key
 
 set shiftwidth=2                                  "num of columns text is indented with reindent operations
