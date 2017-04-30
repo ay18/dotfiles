@@ -21,18 +21,19 @@
 # ---------------------------------------------------------------
 'atom-text-editor.autocomplete-active:not([mini])':
   'tab': 'autocomplete-plus:confirm'
-  'ctrl-i': 'core:move-up'
-  'ctrl-k': 'core:move-down'
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
   
+'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
+  'tab': 'editor:indent-selected-rows'
+
 'atom-text-editor:not([mini])':
   'alt-.': 'find-and-replace:find-next'
   'alt-,': 'find-and-replace:find-previous'
-  'alt-d': 'find-and-replace:select-all'
+  'cmd-ctrl-d': 'find-and-replace:select-all'
   
-  
-  'tab': 'editor:indent-selected-rows'
-  'cmd-ctrl-i': 'editor:move-line-up'
-  'cmd-ctrl-k': 'editor:move-line-down'
+  'cmd-ctrl-k': 'editor:move-line-up'
+  'cmd-ctrl-j': 'editor:move-line-down'
   
   'ctrl-i': 'window:toggle-invisibles'
   'cmd-g': 'go-to-line:toggle'
@@ -50,15 +51,15 @@
   
 # Vim Mode Plus
 # ---------------------------------------------------------------
-'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.find-pending)':
-  
-  'h': 'vim-mode-plus:activate-insert-mode'
+'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.find-pending)':   
+  # 'h': 'vim-mode-plus:activate-insert-mode'
   
   # Movement
-  'i': 'vim-mode-plus:move-up'
-  'k': 'vim-mode-plus:move-down'
-  'j': 'vim-mode-plus:move-left'
-  'l': 'vim-mode-plus:move-right'
+  'r': 'vim-mode-plus:search'
+  'R': 'vim-mode-plus:search-backwards'
+  
+  'h': 'unbind!'
+  'l': 'unbind!'
   # 'e'
   'E': 'vim-mode-plus:move-to-previous-end-of-word'
   # 'w'

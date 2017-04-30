@@ -105,10 +105,10 @@ alias lab='cd ~/dev-local/lab'
 alias forks='cd ~/dev-local/forks'
 
 # git
-alias g-s="git status"
-alias g-dc="git diff --cached"
-alias g-d="git diff"
-alias g-c="git commit"
+alias gs="git status"
+alias gdc="git diff --cached"
+alias gd="git diff"
+alias gc="git commit"
 
 # app academy
 alias aa='cd ~/dev-local/personal/aa/alpha'
