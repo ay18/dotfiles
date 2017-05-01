@@ -23,7 +23,7 @@
   'tab': 'autocomplete-plus:confirm'
   'ctrl-k': 'core:move-up'
   'ctrl-j': 'core:move-down'
-  
+
 'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
   'tab': 'editor:indent-selected-rows'
 
@@ -31,7 +31,7 @@
   'alt-.': 'find-and-replace:find-next'
   'alt-,': 'find-and-replace:find-previous'
   'cmd-ctrl-d': 'find-and-replace:select-all'
-  
+    
   'cmd-ctrl-k': 'editor:move-line-up'
   'cmd-ctrl-j': 'editor:move-line-down'
   
@@ -51,13 +51,10 @@
   
 # Vim Mode Plus
 # ---------------------------------------------------------------
-'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.find-pending)':   
-  # 'h': 'vim-mode-plus:activate-insert-mode'
+'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
+  'i': 'vim-mode-plus:insert-at-end-of-occurrence'
   
-  # Movement
-  'r': 'vim-mode-plus:search'
-  'R': 'vim-mode-plus:search-backwards'
-  
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'h': 'unbind!'
   'l': 'unbind!'
   # 'e'
@@ -67,17 +64,24 @@
   'q': 'vim-mode-plus:move-to-next-subword'
   'Q': 'vim-mode-plus:move-to-previous-subword'
   's': 'vim-mode-plus:move-to-next-string'
-  'S': 'vim-mode-plus:move-to-previous-string'
+  'S': 'vim-mode-plus:move-to-previous-string'   
+  # 'h': 'vim-mode-plus:activate-insert-mode'
   
+  # Movement
+  'r': 'vim-mode-plus:search'
+  'R': 'vim-mode-plus:search-backwards'
+    
   'ctrl-a': 'vim-mode-plus:move-to-first-character-of-line'
   'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
   
   # Normal Mode Edit
+  'x': 'unbind!'
   'c s': 'vim-mode-plus:change-surround-any-pair'
-  
-  # 'space f': 'narrow:fold'
-  'g d': 'vim-mode-plus:select-occurrence'
+  'backspace': 'core:backspace'
+  'shift-backspace': 'core:delete'
   
   'g p': 'vim-mode-plus:put-after-with-auto-indent'
   'g P': 'vim-mode-plus:put-before-with-auto-indent'
+  # 'space f': 'narrow:fold'
   
+  'cmd-d': 'vim-mode-plus:toggle-preset-occurrence'
