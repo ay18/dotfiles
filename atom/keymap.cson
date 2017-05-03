@@ -20,16 +20,16 @@
 # Atom Editor 
 # ---------------------------------------------------------------
 'atom-text-editor.autocomplete-active:not([mini])':
-  'tab': 'autocomplete-plus:confirm'
-  'ctrl-k': 'core:move-up'
-  'ctrl-j': 'core:move-down'
+  'space': 'autocomplete-plus:confirm'
+  'shift-tab': 'core:move-up'
+  'tab': 'core:move-down'
 
 'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
   'tab': 'editor:indent-selected-rows'
 
 'atom-text-editor:not([mini])':
-  'alt-.': 'find-and-replace:find-next'
-  'alt-,': 'find-and-replace:find-previous'
+  'ctrl-.': 'find-and-replace:find-next'
+  'ctrl-,': 'find-and-replace:find-previous'
   'cmd-ctrl-d': 'find-and-replace:select-all'
     
   'cmd-ctrl-k': 'editor:move-line-up'
