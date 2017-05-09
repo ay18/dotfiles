@@ -13,7 +13,7 @@ CLR="\[$(tput sgr0)\]"
 C_BLUE="$CLR\[\033[38;5;39m\]"
 C_YELLOW="$CLR\[\033[38;5;228m\]"
 C_RED="$CLR\[\033[38;5;203m\]"
-TRI="`echo -e '\u25B2'`"
+TRI="$(echo -e '\xe2\x96\xb2')"
 
 # prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
@@ -114,6 +114,7 @@ alias gc="git commit"
 alias aa='cd ~/dev-local/personal/aa/alpha'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
+alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
 
 # utilities
 alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'

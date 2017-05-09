@@ -20,9 +20,9 @@
 # Atom Editor 
 # ---------------------------------------------------------------
 'atom-text-editor.autocomplete-active:not([mini])':
-  'space': 'autocomplete-plus:confirm'
-  'shift-tab': 'core:move-up'
-  'tab': 'core:move-down'
+  'tab': 'autocomplete-plus:confirm'
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
 
 'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
   'tab': 'editor:indent-selected-rows'
