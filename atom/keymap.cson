@@ -39,6 +39,7 @@
   'cmd-g': 'go-to-line:toggle'
   'cmd-m': 'bracket-matcher:select-inside-brackets'
   'shift-backspace': 'core:delete'
+  'z z': 'vim-mode-plus:toggle-fold'
 
   # Bookmarks
   'cmd-2': 'bookmarks:toggle-bookmark'
@@ -49,6 +50,9 @@
   # Git Diff Details
   'ctrl-cmd-u': 'git-diff-details:undo'
   
+  # Prevent accidentally hitting keys
+  'alt-j': 'unbind!'
+  'alt-k': 'unbind!'
   
 # Vim Mode Plus
 # ---------------------------------------------------------------

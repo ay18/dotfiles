@@ -98,7 +98,7 @@ alias devgd='cd ~/Google\ Drive/dev'
 alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 
 # personal project directories
-alias dev='cd ~/dev-local/personal'
+alias dev='cd ~/dev-local/main'
 alias sb='cd ~/dev-local/sandbox'
 alias notes='cd ~/dev-local/notes'
 alias lab='cd ~/dev-local/lab'
@@ -111,10 +111,10 @@ alias gd="git diff"
 alias gc="git commit"
 
 # app academy
-alias aa='cd ~/dev-local/personal/aa/alpha'
+alias aa='cd ~/dev-local/main/aa'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
 alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
 
 # utilities
-alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
+alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 0'
