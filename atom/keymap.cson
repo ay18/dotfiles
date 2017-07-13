@@ -5,6 +5,11 @@
 
 # Atom Workspace 
 # ---------------------------------------------------------------
+'.workspace':
+  # Git
+  'alt-g alt-d': 'github:toggle-git-tab'
+  
+
 '.workspace .editor:not([mini])':
   # Panes & windows navigation
   'cmd-alt-v': 'pane:split-right-and-move-active-item'
@@ -16,6 +21,7 @@
   'cmd-e': 'fuzzy-finder:toggle-file-finder'
   'cmd-shift-d': 'fuzzy-finder:toggle-git-status-finder'
   
+  'alt-g alt-d': 'github:toggle-git-tab'
 
 # Atom Editor 
 # ---------------------------------------------------------------
@@ -48,7 +54,8 @@
   'cmd-alt-2': 'bookmarks:view-all'
 
   # Git Diff Details
-  'ctrl-cmd-u': 'git-diff-details:undo'
+  # 'ctrl-cmd-u': 'git-diff-details:undo'
+  
   
   # Prevent accidentally hitting keys
   'alt-j': 'unbind!'

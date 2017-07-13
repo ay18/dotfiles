@@ -25,9 +25,6 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 # PLUGINS
 # ---------------------------------------------------------------
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Update PATH for homebrew.
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
@@ -112,6 +109,7 @@ alias gc="git commit"
 
 # app academy
 alias aa='cd ~/dev-local/main/aa'
+alias camp='cd ~/dev-local/main/aa/camp'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
 alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
