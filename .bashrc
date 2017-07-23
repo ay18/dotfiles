@@ -19,7 +19,9 @@ TRI="$(echo -e '\xe2\x96\xb2')"
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
 # Set terminal tab name to current directory.
-export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+# This is commented out because it breaks opening new tabs
+# from current directory in terminal.app
+#export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
 
 
 # PLUGINS
@@ -77,6 +79,7 @@ alias npmu='npm-check-updates'
 alias g++='g++ -Wall -Wconversion -pedantic -std=c++11'
 alias webpack='webpack --config webpack.config.prod.js --watch'
 alias webpackdev='webpack-dev-server --config webpack.config.dev.js --watch'
+alias be='bundle exec'
 #alias python='python3'
 
 # files

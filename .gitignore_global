@@ -1,13 +1,9 @@
-# Editor Generated
-------------------
-*~
+# Rails
+**/.byebug*
 
 # golang
-------------------
 **/vendor/
 
-
 # OSX
-------------------
 .DS_Store
 .tags*

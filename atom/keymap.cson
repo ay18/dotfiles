@@ -46,6 +46,8 @@
   'cmd-m': 'bracket-matcher:select-inside-brackets'
   'shift-backspace': 'core:delete'
   'z z': 'vim-mode-plus:toggle-fold'
+  'Z Z': 'vim-mode-plus:fold-all'
+  'Z X': 'vim-mode-plus:unfold-all'
 
   # Bookmarks
   'cmd-2': 'bookmarks:toggle-bookmark'
