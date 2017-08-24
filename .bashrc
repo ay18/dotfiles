@@ -31,8 +31,8 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
 # golang
-export GOPATH=$HOME/dev-local/golang
-export PATH=$PATH:$GOPATH/bin
+#export GOPATH=$HOME/dev-local/golang
+#export PATH=$PATH:$GOPATH/bin
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -55,7 +55,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 fi
 
 # Git-bash completion
-#source ~/.git-completion.bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # Git branch in prompt.
 parse_git_branch() {
@@ -115,7 +117,9 @@ alias aa='cd ~/dev-local/main/aa'
 alias camp='cd ~/dev-local/main/aa/camp'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
+alias nr='npm run'
 alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
+alias aan='cd ~/dev-local/main/aa/camp/camp-notes'
 
 # utilities
 alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 0'

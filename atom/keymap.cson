@@ -9,6 +9,7 @@
   # Git
   'alt-g alt-d': 'github:toggle-git-tab'
   
+  'shift-backspace': 'core:delete'
 
 '.workspace .editor:not([mini])':
   # Panes & windows navigation
@@ -29,25 +30,27 @@
   'tab': 'autocomplete-plus:confirm'
   'ctrl-k': 'core:move-up'
   'ctrl-j': 'core:move-down'
+  
+'atom-text-editor.insert-mode:not([mini])':  
+  # Snippets
+  'alt-tab': 'snippets:expand'
 
-'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
-  'tab': 'editor:indent-selected-rows'
+# 'atom-text-editor:not([mini]):not(.has-occurrence):not(.autocomplete-active)':
+#   'tab': 'editor:indent-selected-rows'
 
 'atom-text-editor:not([mini])':
   'ctrl-.': 'find-and-replace:find-next'
   'ctrl-,': 'find-and-replace:find-previous'
   'cmd-ctrl-d': 'find-and-replace:select-all'
     
-  'cmd-ctrl-k': 'editor:move-line-up'
-  'cmd-ctrl-j': 'editor:move-line-down'
+  # 'cmd-ctrl-k': 'editor:move-line-up'
+  # 'cmd-ctrl-j': 'editor:move-line-down'
   
   'ctrl-i': 'window:toggle-invisibles'
-  'cmd-g': 'go-to-line:toggle'
   'cmd-m': 'bracket-matcher:select-inside-brackets'
-  'shift-backspace': 'core:delete'
-  'z z': 'vim-mode-plus:toggle-fold'
-  'Z Z': 'vim-mode-plus:fold-all'
-  'Z X': 'vim-mode-plus:unfold-all'
+  # 'z z': 'vim-mode-plus:toggle-fold'
+  # 'Z Z': 'vim-mode-plus:fold-all'
+  # 'Z X': 'vim-mode-plus:unfold-all'
 
   # Bookmarks
   'cmd-2': 'bookmarks:toggle-bookmark'
@@ -58,43 +61,42 @@
   # Git Diff Details
   # 'ctrl-cmd-u': 'git-diff-details:undo'
   
-  
   # Prevent accidentally hitting keys
   'alt-j': 'unbind!'
   'alt-k': 'unbind!'
   
-# Vim Mode Plus
-# ---------------------------------------------------------------
-'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
-  'i': 'vim-mode-plus:insert-at-end-of-occurrence'
-  
-'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'h': 'unbind!'
-  'l': 'unbind!'
-  # 'e'
-  'E': 'vim-mode-plus:move-to-previous-end-of-word'
-  # 'w'
-  'W': 'vim-mode-plus:move-to-previous-word'
-  'q': 'vim-mode-plus:move-to-next-subword'
-  'Q': 'vim-mode-plus:move-to-previous-subword'
-  's': 'vim-mode-plus:move-to-next-string'
-  'S': 'vim-mode-plus:move-to-previous-string'   
-  # 'h': 'vim-mode-plus:activate-insert-mode'
-  
-  # Movement
-  'r': 'vim-mode-plus:search'
-  'R': 'vim-mode-plus:search-backwards'
-    
-  'ctrl-a': 'vim-mode-plus:move-to-first-character-of-line'
-  'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
-  
-  # Normal Mode Edit
-  'x': 'unbind!'
-  'c s': 'vim-mode-plus:change-surround-any-pair'
-  'backspace': 'core:backspace'
-  
-  'g p': 'vim-mode-plus:put-after-with-auto-indent'
-  'g P': 'vim-mode-plus:put-before-with-auto-indent'
-  # 'space f': 'narrow:fold'
-  
-  'cmd-d': 'vim-mode-plus:toggle-preset-occurrence'
+# # Vim Mode Plus
+# # ---------------------------------------------------------------
+# 'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
+#   'i': 'vim-mode-plus:insert-at-end-of-occurrence'
+#   
+# 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+#   'h': 'unbind!'
+#   'l': 'unbind!'
+#   # 'e'
+#   'E': 'vim-mode-plus:move-to-previous-end-of-word'
+#   # 'w'
+#   'W': 'vim-mode-plus:move-to-previous-word'
+#   'q': 'vim-mode-plus:move-to-next-subword'
+#   'Q': 'vim-mode-plus:move-to-previous-subword'
+#   's': 'vim-mode-plus:move-to-next-string'
+#   'S': 'vim-mode-plus:move-to-previous-string'   
+#   # 'h': 'vim-mode-plus:activate-insert-mode'
+#   
+#   # Movement
+#   'r': 'vim-mode-plus:search'
+#   'R': 'vim-mode-plus:search-backwards'
+#     
+#   'ctrl-a': 'vim-mode-plus:move-to-first-character-of-line'
+#   'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
+#   
+#   # Normal Mode Edit
+#   'x': 'unbind!'
+#   'c s': 'vim-mode-plus:change-surround-any-pair'
+#   'backspace': 'core:backspace'
+#   
+#   'g p': 'vim-mode-plus:put-after-with-auto-indent'
+#   'g P': 'vim-mode-plus:put-before-with-auto-indent'
+#   # 'space f': 'narrow:fold'
+#   
+#   'cmd-d': 'vim-mode-plus:toggle-preset-occurrence'

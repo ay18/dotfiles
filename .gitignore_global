@@ -5,5 +5,10 @@
 **/vendor/
 
 # OSX
-.DS_Store
+**/.DS_Store
 .tags*
+
+# node
+**/node_modules
+**/bundle*
+**/npm-debug**
