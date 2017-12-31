@@ -6,10 +6,14 @@
 # Atom Workspace 
 # ---------------------------------------------------------------
 '.workspace':
-  # Git
   'alt-g alt-d': 'github:toggle-git-tab'
   
   'shift-backspace': 'core:delete'
+  'cmd-shift-e': 'tree-view:toggle-focus'
+  
+'.workspace .editor':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
 
 '.workspace .editor:not([mini])':
   # Panes & windows navigation
@@ -17,19 +21,18 @@
   'cmd-]': 'window:focus-pane-on-right'
   'cmd-[': 'window:focus-pane-on-left'
   
-  'cmd-shift-e': 'tree-view:toggle-focus'
-  
   'cmd-e': 'fuzzy-finder:toggle-file-finder'
   'cmd-shift-d': 'fuzzy-finder:toggle-git-status-finder'
   
   'alt-g alt-d': 'github:toggle-git-tab'
+  
+'.tree-view':
+  'r': 'tree-view:rename'
 
 # Atom Editor 
 # ---------------------------------------------------------------
 'atom-text-editor.autocomplete-active:not([mini])':
   'tab': 'autocomplete-plus:confirm'
-  'ctrl-k': 'core:move-up'
-  'ctrl-j': 'core:move-down'
   
 'atom-text-editor.insert-mode:not([mini])':  
   # Snippets

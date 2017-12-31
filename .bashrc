@@ -30,8 +30,12 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 # Update PATH for homebrew.
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
+# python
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+eval "$(pyenv init -)"
+
 # golang
-#export GOPATH=$HOME/dev-local/golang
+#export GOPATH=$HOME/dev/golang
 #export PATH=$PATH:$GOPATH/bin
 
 # nvm
@@ -93,6 +97,7 @@ alias irbrc='$EDITOR ~/.irbrc'
 # alias envvars='$EDITOR ~/.global_env_vars.sh'
 
 # directories
+alias journal='cd ~/journal'
 alias drive='cd ~/Google\ Drive'
 alias cellar='cd /usr/local/Cellar'
 alias devgd='cd ~/Google\ Drive/dev'
@@ -100,26 +105,19 @@ alias devgd='cd ~/Google\ Drive/dev'
 alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 
 # personal project directories
-alias dev='cd ~/dev-local/main'
-alias sb='cd ~/dev-local/sandbox'
-alias notes='cd ~/dev-local/notes'
-alias lab='cd ~/dev-local/lab'
-alias forks='cd ~/dev-local/forks'
-
-# git
-alias gs="git status"
-alias gdc="git diff --cached"
-alias gd="git diff"
-alias gc="git commit"
+alias dev='cd ~/dev/main'
+alias notes='cd ~/dev/main/notes'
+alias lab='cd ~/dev/lab'
+alias practice='cd ~/dev/main/algos-ds'
 
 # app academy
-alias aa='cd ~/dev-local/main/aa'
-alias camp='cd ~/dev-local/main/aa/camp'
+alias aa='cd ~/dev/main/aa'
+alias camp='cd ~/dev/main/aa/camp'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
 alias nr='npm run'
 alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
-alias aan='cd ~/dev-local/main/aa/camp/camp-notes'
+alias aan='cd ~/dev/main/aa/camp/camp-notes'
 
 # utilities
 alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 0'
