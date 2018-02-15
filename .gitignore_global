@@ -1,6 +1,7 @@
 # dev
 **/.envrc
 **/tmp
+**/.vscode/
 
 # Rails
 **/.byebug*

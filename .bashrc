@@ -34,6 +34,16 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 eval "$(pyenv init -)"
 
+# php
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+# composer
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+#function homestead() {
+#    ( cd ~/Homestead && vagrant $* )
+#}
+
 # golang
 #export GOPATH=$HOME/dev/golang
 #export PATH=$PATH:$GOPATH/bin
@@ -97,7 +107,8 @@ alias irbrc='$EDITOR ~/.irbrc'
 # alias envvars='$EDITOR ~/.global_env_vars.sh'
 
 # directories
-alias journal='cd ~/journal'
+alias sb='cd ~/dev/sandbox'
+alias journal='cd ~/journal && code ~/journal'
 alias drive='cd ~/Google\ Drive'
 alias cellar='cd /usr/local/Cellar'
 alias devgd='cd ~/Google\ Drive/dev'
@@ -106,13 +117,14 @@ alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
 
 # personal project directories
 alias dev='cd ~/dev/main'
-alias notes='cd ~/dev/main/notes'
+alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
 alias lab='cd ~/dev/lab'
 alias practice='cd ~/dev/main/algos-ds'
 
 # app academy
 alias aa='cd ~/dev/main/aa'
 alias camp='cd ~/dev/main/aa/camp'
+alias coursera='cd ~/dev/main/coursera'
 alias irbload='irb -I . -r'
 alias be='bundle exec'
 alias nr='npm run'
