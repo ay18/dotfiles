@@ -18,11 +18,6 @@ TRI="$(echo -e '\xe2\x96\xb2')"
 # prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
-# Set terminal tab name to current directory.
-# This is commented out because it breaks opening new tabs
-# from current directory in terminal.app
-#export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
-
 
 # PLUGINS
 # ---------------------------------------------------------------
@@ -34,23 +29,13 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 eval "$(pyenv init -)"
 
-# php
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
-#function homestead() {
-#    ( cd ~/Homestead && vagrant $* )
-#}
+function homestead() {
+    ( cd ~/Homestead && vagrant $* )
+}
 
-# golang
-#export GOPATH=$HOME/dev/golang
-#export PATH=$PATH:$GOPATH/bin
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
 
 # fzf
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
@@ -84,19 +69,15 @@ parse_git_branch() {
 
 # system
 alias rm='rmtrash'
-alias ls='ls -aFG'
+alias ls='ls -FG'
 alias mkdir='mkdir -p'
 
 # dev
-alias pip='pip3'
 alias pipls='pip list --format=columns'
 alias npmls='npm -g ls --depth=0'
 alias npmu='npm-check-updates'
 alias g++='g++ -Wall -Wconversion -pedantic -std=c++11'
-alias webpack='webpack --config webpack.config.prod.js --watch'
-alias webpackdev='webpack-dev-server --config webpack.config.dev.js --watch'
 alias be='bundle exec'
-#alias python='python3'
 
 # files
 alias hosts='sudo $EDITOR /etc/hosts'
@@ -104,32 +85,15 @@ alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
 alias reload='. ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
-# alias envvars='$EDITOR ~/.global_env_vars.sh'
+alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
+alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
 
 # directories
-alias sb='cd ~/dev/sandbox'
-alias journal='cd ~/journal && code ~/journal'
-alias drive='cd ~/Google\ Drive'
-alias cellar='cd /usr/local/Cellar'
-alias devgd='cd ~/Google\ Drive/dev'
-# dotfiles is a symlinked directory, many symlinked files depend on it.
-alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
-
-# personal project directories
-alias dev='cd ~/dev/main'
-alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
+alias dev='cd ~/dev/projects'
 alias lab='cd ~/dev/lab'
-alias practice='cd ~/dev/main/algos-ds'
+alias sb='cd ~/dev/sandbox'
+alias archive='cd ~/dev/archive'
+alias journal='cd ~/journal && code ~/journal'
+alias cellar='cd /usr/local/Cellar'
 
-# app academy
-alias aa='cd ~/dev/main/aa'
-alias camp='cd ~/dev/main/aa/camp'
-alias coursera='cd ~/dev/main/coursera'
-alias irbload='irb -I . -r'
-alias be='bundle exec'
-alias nr='npm run'
-alias aad='docker run -v "$(pwd)":/home/andy/aa/ -it ruby-env'
-alias aan='cd ~/dev/main/aa/camp/camp-notes'
 
-# utilities
-alias ydl='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3 --audio-quality 0'
