@@ -1,0 +1,48 @@
+# CONFIG
+# ---------------------------------------------------------------
+EDITOR="vim"
+
+# Bash prompt PS1
+# colors
+CLR="\[$(tput sgr0)\]"
+C_BLUE="$CLR\[\033[38;5;39m\]"
+C_YELLOW="$CLR\[\033[38;5;228m\]"
+C_RED="$CLR\[\033[38;5;203m\]"
+TRI="$(echo -e '\xe2\x96\xb2')"
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# prompt
+export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
+
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
+export GET_PW=$(security find-generic-password -a ${USER} -s cyee)
+
+wfsync() {
+  realsync ~/codebase
+}
+
+wfdebug() {
+  . ~/dev/config/remote_debug.sh >/dev/null
+}
+
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# aliases
+
+alias reload='. ~/.bashrc'
+alias bashrc='vim ~/.bashrc'
+
+alias sshvm='ssh 10.228.191.43'
+alias wfcode='cd ~/codebase'
+alias wfres='cd ~/codebase/resources'
+alias wfphp='cd ~/codebase/php'
+
+alias dev='cd ~/dev'
+alias sb='cd ~/dev/sandbox'
+alias lab='cd ~/dev/lab'
+
