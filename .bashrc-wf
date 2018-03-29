@@ -17,8 +17,6 @@ parse_git_branch() {
 # prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
-
 export GET_PW=$(security find-generic-password -a ${USER} -s cyee)
 
 wfsync() {
@@ -36,8 +34,9 @@ export NVM_DIR="$HOME/.nvm"
 
 alias reload='. ~/.bashrc'
 alias bashrc='vim ~/.bashrc'
+alias dotfiles='cd ~/dev/config/dotfiles'
 
-alias sshvm='ssh 10.228.191.43'
+alias sshvm='ssh -t cyee@10.228.191.43 bash -l'
 alias wfcode='cd ~/codebase'
 alias wfres='cd ~/codebase/resources'
 alias wfphp='cd ~/codebase/php'
@@ -45,4 +44,20 @@ alias wfphp='cd ~/codebase/php'
 alias dev='cd ~/dev'
 alias sb='cd ~/dev/sandbox'
 alias lab='cd ~/dev/lab'
+
+alias tmkill='tmux kill-server'
+
+wfstart () {
+  (
+    cd ~/dev/; tmux new-session -d -s wfdev -n window
+    tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
+    tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
+    tmux send-keys -t wfdev:window 'tmux select-layout even-horizontal' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t .+ "wfsync" Enter' Enter 
+    tmux send-keys -t wfdev:window 'tmux send-keys -t .- "wfdebug" Enter' Enter
+    tmux send-keys -t wfdev:window 'tmux swap-pane -t .-' Enter
+    tmux send-keys -t wfdev:window 'tmux select-pane -t .-' Enter
+    tmux attach -t wfdev:window
+  )
+}
 
