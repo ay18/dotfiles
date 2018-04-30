@@ -14,6 +14,10 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# git auto-complete
+export LC_ALL=C
+source "/usr/local/etc/bash_completion.d/git-completion.bash"
+
 # prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
