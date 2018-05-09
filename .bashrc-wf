@@ -25,6 +25,9 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
 
+# direnv
+eval "$(direnv hook bash)"
+
 # aliases
 
 alias reload='. ~/.bashrc'
@@ -63,8 +66,8 @@ wfstart() {
     done
     tmux send-keys -t wfdev:window 'tmux select-layout even-horizontal' Enter
     tmux send-keys -t wfdev:window 'tmux send-keys -t 0.1 "wfsync" Enter' Enter 
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wfdebug" Enter' Enter
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wms_docker_up" Enter' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wms_docker_up" Enter' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wfdebug" Enter' Enter
     tmux send-keys -t wfdev:window 'tmux select-pane -t 0.0' Enter
     tmux attach -t wfdev:window
   )
