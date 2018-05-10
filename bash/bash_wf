@@ -1,38 +1,4 @@
-# CONFIG
-# ---------------------------------------------------------------
-EDITOR="code"
-
-# Bash prompt PS1
-# colors
-CLR="\[$(tput sgr0)\]"
-C_BLUE="$CLR\[\033[38;5;39m\]"
-C_YELLOW="$CLR\[\033[38;5;228m\]"
-C_RED="$CLR\[\033[38;5;203m\]"
-TRI="$(echo -e '\xe2\x96\xb2')"
-
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-# git auto-complete
-export LC_ALL=C
-source "/usr/local/etc/bash_completion.d/git-completion.bash"
-
-# prompt
-export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# direnv
-eval "$(direnv hook bash)"
-
-# aliases
-
-alias reload='. ~/.bashrc'
-alias bashrc='$EDITOR ~/.bashrc'
-alias dotfiles='cd ~/dev/config/dotfiles'
+# WF
 
 alias sshvm='ssh -t cyee@10.228.191.43 bash -l'
 alias wfcode='cd ~/codebase'

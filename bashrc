@@ -3,6 +3,12 @@
 # * https://github.com/sksea/dotfiles
 # * andy.sksea@gmail.com
 
+BASH_IMPORTS=$(find ~/dev/dotfiles/bash -type f)
+for sh in $BASH_IMPORTS; do
+  echo "dotting $sh"
+  . "$sh"
+done
+
 # CONFIG
 # ---------------------------------------------------------------
 EDITOR="code"
@@ -16,7 +22,6 @@ C_RED="$CLR\[\033[38;5;203m\]"
 TRI="$(echo -e '\xe2\x96\xb2')"
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
-
 # PLUGINS
 # ---------------------------------------------------------------
 
@@ -26,6 +31,10 @@ export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 eval "$(pyenv init -)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
@@ -51,22 +60,20 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 	. $(brew --prefix)/etc/bash_completion
 fi
 
-# Git-bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
-
 # Git branch in prompt.
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+# git auto-complete
+export LC_ALL=C
+source "/usr/local/etc/bash_completion.d/git-completion.bash"
 
 
 # ALIASES
 # ---------------------------------------------------------------
 
 # system
-alias rm='rmtrash'
 alias ls='ls -FG'
 alias mkdir='mkdir -p'
 
@@ -83,7 +90,7 @@ alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
 alias reload='. ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
-alias dotfiles='cd ~/Google\ Drive/dev/dotfiles'
+alias dotfiles='cd ~/dev/dotfiles'
 alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
 
 # directories
