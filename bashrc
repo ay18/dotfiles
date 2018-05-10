@@ -3,9 +3,9 @@
 # * https://github.com/sksea/dotfiles
 # * andy.sksea@gmail.com
 
-BASH_IMPORTS=$(find ~/dev/dotfiles/bash -type f)
-for sh in $BASH_IMPORTS; do
-  echo "dotting $sh"
+BASH_IMPORTS="$HOME/dev/dotfiles/bash"
+for sh in $(find $BASH_IMPORTS -type f); do
+  echo "sourcing $sh"
   . "$sh"
 done
 
@@ -25,8 +25,12 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 # PLUGINS
 # ---------------------------------------------------------------
 
-# Update PATH for homebrew.
+# Export PATH for homebrew.
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+# brew bash completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
+	. $(brew --prefix)/etc/bash_completion
+fi
 
 # python
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -39,6 +43,7 @@ export NVM_DIR="$HOME/.nvm"
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+# laravel homestead
 function homestead() {
     ( cd ~/Homestead && vagrant $* )
 }
@@ -54,11 +59,6 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # direnv
 eval "$(direnv hook bash)"
-
-# brew-bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
-	. $(brew --prefix)/etc/bash_completion
-fi
 
 # Git branch in prompt.
 parse_git_branch() {
