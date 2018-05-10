@@ -1,12 +1,5 @@
 # WF
 
-alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
-alias wfcode='cd ~/codebase'
-alias wfres='cd ~/codebase/resources'
-alias wfphp='cd ~/codebase/php'
-
-# automating commands
-
 wfsync() {
   realsync ~/codebase
 }
@@ -38,3 +31,8 @@ wfstart() {
 wfend() {
   tmux kill-server
 }
+
+alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
+alias wfcode='cd ~/codebase'
+alias wfres='cd ~/codebase/resources'
+alias wfphp='cd ~/codebase/php'
