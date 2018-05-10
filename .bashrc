@@ -5,17 +5,15 @@
 
 # CONFIG
 # ---------------------------------------------------------------
-EDITOR="vim"
+EDITOR="code"
+PLATFORM=$(uname -s)
 
-# Bash prompt PS1
-# colors
+# Prompt PS1
 CLR="\[$(tput sgr0)\]"
 C_BLUE="$CLR\[\033[38;5;39m\]"
 C_YELLOW="$CLR\[\033[38;5;228m\]"
 C_RED="$CLR\[\033[38;5;203m\]"
 TRI="$(echo -e '\xe2\x96\xb2')"
-
-# prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
 
@@ -36,7 +34,6 @@ function homestead() {
     ( cd ~/Homestead && vagrant $* )
 }
 
-
 # fzf
 [ -f ~/.fzf.bash  ] && source ~/.fzf.bash
 # remap fzf in bash.
@@ -44,6 +41,7 @@ if [ $BASH_VERSINFO -gt 3  ]; then
   bind -r "\C-t"
   bind -x '"\C-f": "fzf-file-widget"'
 fi
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # direnv
 eval "$(direnv hook bash)"
@@ -95,5 +93,4 @@ alias sb='cd ~/dev/sandbox'
 alias archive='cd ~/dev/archive'
 alias journal='cd ~/journal && code ~/journal'
 alias cellar='cd /usr/local/Cellar'
-
-
+alias books='cd ~/Google\ Drive/books'
