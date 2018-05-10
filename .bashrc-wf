@@ -1,6 +1,6 @@
 # CONFIG
 # ---------------------------------------------------------------
-EDITOR="vim"
+EDITOR="code"
 
 # Bash prompt PS1
 # colors
@@ -14,12 +14,36 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# git auto-complete
+export LC_ALL=C
+source "/usr/local/etc/bash_completion.d/git-completion.bash"
+
 # prompt
 export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
 
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
-export GET_PW=$(security find-generic-password -a ${USER} -s cyee)
+# direnv
+eval "$(direnv hook bash)"
+
+# aliases
+
+alias reload='. ~/.bashrc'
+alias bashrc='$EDITOR ~/.bashrc'
+alias dotfiles='cd ~/dev/config/dotfiles'
+
+alias sshvm='ssh -t cyee@10.228.191.43 bash -l'
+alias wfcode='cd ~/codebase'
+alias wfres='cd ~/codebase/resources'
+alias wfphp='cd ~/codebase/php'
+
+alias dev='cd ~/dev'
+alias sb='cd ~/dev/sandbox'
+alias lab='cd ~/dev/lab'
+
+# automating commands
 
 wfsync() {
   realsync ~/codebase
@@ -29,20 +53,26 @@ wfdebug() {
   . ~/dev/config/remote_debug.sh >/dev/null
 }
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+wms_docker_up() {
+  cd ~/docker-sql-server && docker-compose -p dev up
+}
 
-# aliases
+wfstart() {
+  (
+    cd ~/dev/; tmux new-session -d -s wfdev -n window
+    for _ in {1..3}
+      do
+        tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
+    done
+    tmux send-keys -t wfdev:window 'tmux select-layout even-horizontal' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.1 "wfsync" Enter' Enter 
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wms_docker_up" Enter' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wfdebug" Enter' Enter
+    tmux send-keys -t wfdev:window 'tmux select-pane -t 0.0' Enter
+    tmux attach -t wfdev:window
+  )
+}
 
-alias reload='. ~/.bashrc'
-alias bashrc='vim ~/.bashrc'
-
-alias sshvm='ssh 10.228.191.43'
-alias wfcode='cd ~/codebase'
-alias wfres='cd ~/codebase/resources'
-alias wfphp='cd ~/codebase/php'
-
-alias dev='cd ~/dev'
-alias sb='cd ~/dev/sandbox'
-alias lab='cd ~/dev/lab'
-
+wfend() {
+  tmux kill-server
+}
