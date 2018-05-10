@@ -94,7 +94,8 @@ alias dotfiles='cd ~/dev/dotfiles'
 alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
 
 # directories
-alias dev='cd ~/dev/projects'
+alias dev='cd ~/dev'
+alias proj='cd ~/dev/projects'
 alias lab='cd ~/dev/lab'
 alias sb='cd ~/dev/sandbox'
 alias archive='cd ~/dev/archive'

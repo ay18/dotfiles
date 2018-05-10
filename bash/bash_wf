@@ -1,13 +1,9 @@
 # WF
 
-alias sshvm='ssh -t cyee@10.228.191.43 bash -l'
+alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
 alias wfcode='cd ~/codebase'
 alias wfres='cd ~/codebase/resources'
 alias wfphp='cd ~/codebase/php'
-
-alias dev='cd ~/dev'
-alias sb='cd ~/dev/sandbox'
-alias lab='cd ~/dev/lab'
 
 # automating commands
 
