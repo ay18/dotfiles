@@ -38,7 +38,9 @@ eval "$(pyenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+if [[ -z "${NVM_BIN}" ]]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
 
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
