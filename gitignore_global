@@ -17,3 +17,7 @@
 **/node_modules
 **/bundle*
 **/npm-debug**
+
+# WF
+**/admin/app_includes/controllers/cyee_controller.php
+**/wms/www/.cyee_test.php
