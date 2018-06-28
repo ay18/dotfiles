@@ -93,7 +93,7 @@ alias bashrc='$EDITOR ~/.bashrc'
 alias reload='. ~/.bashrc'
 alias irbrc='$EDITOR ~/.irbrc'
 alias dotfiles='cd ~/dev/dotfiles'
-alias notes='cd ~/dev/main/notes && code ~/dev/main/notes'
+alias notes='code ~/dev/notes'
 
 # directories
 alias dev='cd ~/dev'
