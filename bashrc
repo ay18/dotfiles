@@ -19,8 +19,9 @@ CLR="\[$(tput sgr0)\]"
 C_BLUE="$CLR\[\033[38;5;39m\]"
 C_YELLOW="$CLR\[\033[38;5;228m\]"
 C_RED="$CLR\[\033[38;5;203m\]"
+TIME="$CLR\$(date +%H:%M:%S)"
 TRI="$(echo -e '\xe2\x96\xb2')"
-export PS1="\n$C_BLUE\W $C_YELLOW$TRI$C_RED\$(parse_git_branch)\n> $CLR"
+export PS1="\n$C_BLUE\W $C_YELLOW$TRI $TIME$C_RED\$(parse_git_branch)\n> $CLR"
 
 # PLUGINS
 # ---------------------------------------------------------------
