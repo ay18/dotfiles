@@ -19,7 +19,7 @@ wfs() {
       do
         tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
     done
-    tmux send-keys -t wfdev:window 'tmux select-layout even-horizontal' Enter
+    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.0 "tmux select-layout tiled" Enter' Enter
     tmux send-keys -t wfdev:window 'tmux send-keys -t 0.1 "wfsync" Enter' Enter 
     tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wms_docker_up" Enter' Enter
     tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wfdebug" Enter' Enter
@@ -28,8 +28,20 @@ wfs() {
   )
 }
 
+tmreset() {
+  tmux select-layout tiled
+}
+
 wfe() {
   tmux kill-server
+}
+
+wfdeploy() {
+  current_branch=$(git rev-parse --abbrev-ref HEAD) \
+    && git checkout master \
+    && git pull \
+    && git checkout $current_branch \
+    && git rebase master
 }
 
 alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
