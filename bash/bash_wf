@@ -1,5 +1,9 @@
 # WF
 
+tmreset() {
+  tmux select-layout tiled
+}
+
 wfsync() {
   realsync ~/codebase
 }
@@ -28,10 +32,6 @@ wfs() {
   )
 }
 
-tmreset() {
-  tmux select-layout tiled
-}
-
 wfe() {
   tmux kill-server
 }
@@ -41,7 +41,9 @@ wfdeploy() {
     && git checkout master \
     && git pull \
     && git checkout $current_branch \
-    && git rebase master
+    && git rebase master \
+    && git rebase -i $(git rev-parse origin/master) \
+    && git push -uf origin $current_branch
 }
 
 alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
@@ -49,3 +51,5 @@ alias wfcode='cd ~/codebase'
 alias wfres='cd ~/codebase/resources'
 alias wfphp='cd ~/codebase/php'
 alias wfdb='cd ~/codebase/db'
+alias wfand='cd ~/codebase/tangerine-mobile'
+alias wfpost='wf reviewboard post'
