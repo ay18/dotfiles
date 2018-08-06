@@ -46,7 +46,7 @@ wfdeploy() {
     && git push -uf origin $current_branch
 }
 
-alias wfvm='ssh -t cyee@10.228.191.43 bash -l'
+alias wfvm='ssh -t webphp0967.dev.bo1.csnzoo.com bash -l'
 alias wfcode='cd ~/codebase'
 alias wfres='cd ~/codebase/resources'
 alias wfphp='cd ~/codebase/php'
