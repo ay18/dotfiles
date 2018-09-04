@@ -86,6 +86,8 @@ alias npmls='npm -g ls --depth=0'
 alias npmu='npm-check-updates'
 alias g++='g++ -Wall -Wconversion -pedantic -std=c++11'
 alias be='bundle exec'
+alias gitco='git checkout'
+alias gitst='git status'
 
 # files
 alias hosts='sudo $EDITOR /etc/hosts'

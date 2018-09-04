@@ -19,5 +19,4 @@
 **/npm-debug**
 
 # WF
-**/admin/app_includes/controllers/cyee_controller.php
-**/wms/www/.cyee_test.php
+**/wms/www/.cyee_sandbox.php
