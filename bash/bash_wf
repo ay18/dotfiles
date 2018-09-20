@@ -38,6 +38,7 @@ wfe() {
 
 wfdeploy() {
   current_branch=$(git rev-parse --abbrev-ref HEAD) \
+    && wf sniff \
     && git checkout master \
     && git pull \
     && git checkout $current_branch \
