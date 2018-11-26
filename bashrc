@@ -27,15 +27,14 @@ export PS1="\n$C_BLUE\W $C_YELLOW$TRI $TIME$C_RED\$(parse_git_branch)\n> $CLR"
 # ---------------------------------------------------------------
 
 # Export PATH for homebrew.
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 # brew bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 	. $(brew --prefix)/etc/bash_completion
 fi
 
 # python
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-eval "$(pyenv init -)"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

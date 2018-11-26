@@ -2,6 +2,7 @@
 **/.envrc
 **/tmp
 **/.vscode/
+**/.idea
 
 # Rails
 **/.byebug*
