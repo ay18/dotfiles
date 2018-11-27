@@ -34,10 +34,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 fi
 
 # python
-<<<<<<< HEAD
-=======
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
->>>>>>> origin/wayfair-dotfiles
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
