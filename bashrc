@@ -34,8 +34,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then # brew dep
 fi
 
 # python
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-eval "$(pyenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -62,6 +60,9 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 # direnv
 eval "$(direnv hook bash)"
+
+# jenv
+eval "$(jenv init -)"
 
 # Git branch in prompt.
 parse_git_branch() {
