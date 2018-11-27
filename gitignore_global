@@ -2,6 +2,7 @@
 **/.envrc
 **/tmp
 **/.vscode/
+**/.idea
 
 # Rails
 **/.byebug*
@@ -19,5 +20,4 @@
 **/npm-debug**
 
 # WF
-**/admin/app_includes/controllers/cyee_controller.php
-**/wms/www/.cyee_test.php
+**/cyee_sandbox_class.php
