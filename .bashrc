@@ -1,7 +1,7 @@
 # .bashrc
 # ==============================================================
-# * https://github.com/sksea/dotfiles
-# * andy.sksea@gmail.com
+# * https://github.com/ay18/dotfiles
+# * andyych88@gmail.com
 
 BASH_IMPORTS="$HOME/dev/dotfiles/bash"
 for sh in $(find $BASH_IMPORTS -type f); do
