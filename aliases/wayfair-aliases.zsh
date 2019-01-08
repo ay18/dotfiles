@@ -1,4 +1,17 @@
-# WF
+# wayfair aliases
+# ==============================================================
+# * cyee@wayfair.com
+
+alias wfvm='ssh -t webphp0967.dev.bo1.csnzoo.com bash -l'
+alias snippets='cd ~/dev/wf-snippets'
+alias wfsnip='cd ~/dev/wf-snippets'
+alias codebase='cd ~/codebase'
+alias wfcode='cd ~/codebase'
+alias wfres='cd ~/codebase/resources'
+alias wfphp='cd ~/codebase/php'
+alias wfdb='cd ~/codebase/db'
+alias wfand='cd ~/codebase/tangerine-mobile'
+alias wfpost='wf reviewboard post'
 
 tmreset() {
   tmux select-layout tiled
@@ -9,7 +22,7 @@ wfsync() {
 }
 
 wfdebug() {
-  . ~/dev/config/remote_debug.sh >/dev/null
+  wfphp && wf enable xdebug-tunnel
 }
 
 wms_docker_up() {
@@ -46,14 +59,3 @@ wfdeploy() {
     && git rebase -i $(git rev-parse origin/master) \
     && git push -uf origin $current_branch
 }
-
-alias wfvm='ssh -t webphp0967.dev.bo1.csnzoo.com bash -l'
-alias snippets='cd ~/dev/wf-snippets'
-alias wfsnip='cd ~/dev/wf-snippets'
-alias codebase='cd ~/codebase'
-alias wfcode='cd ~/codebase'
-alias wfres='cd ~/codebase/resources'
-alias wfphp='cd ~/codebase/php'
-alias wfdb='cd ~/codebase/db'
-alias wfand='cd ~/codebase/tangerine-mobile'
-alias wfpost='wf reviewboard post'

@@ -73,6 +73,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+echo (find -L . -type f -iname "*aliases.zsh")
+
+find -L . -type f -iname "*aliases.zsh" | while read FILE; do
+  [[ -s $FILE ]] && source $FILE
+done
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
