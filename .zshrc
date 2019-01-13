@@ -44,7 +44,7 @@ ZSH_THEME="spaceship"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -64,25 +64,23 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  thefuck
   zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
-  zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export DOTFILES="/Users/cyee/dev/dotfiles"
 
-echo (find -L . -type f -iname "*aliases.zsh")
-
-find -L . -type f -iname "*aliases.zsh" | while read FILE; do
+find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
+  echo $(basename $FILE)
   [[ -s $FILE ]] && source $FILE
 done
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -105,4 +103,3 @@ done
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-

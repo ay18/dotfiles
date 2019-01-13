@@ -1,6 +1,5 @@
-# wayfair aliases
-# ==============================================================
-# * cyee@wayfair.com
+# Wayfair aliases
+# Andy Yee [cyee@wayfair.com] 2018
 
 alias wfvm='ssh -t webphp0967.dev.bo1.csnzoo.com bash -l'
 alias snippets='cd ~/dev/wf-snippets'
@@ -30,19 +29,17 @@ wms_docker_up() {
 }
 
 wfs() {
-  (
-    cd ~/dev/; tmux new-session -d -s wfdev -n window
-    for _ in {1..3}
-      do
-        tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
-    done
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.0 "tmux select-layout tiled" Enter' Enter
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.1 "wfdebug" Enter' Enter 
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wms_docker_up" Enter' Enter
-    tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wfsync" Enter' Enter
-    tmux send-keys -t wfdev:window 'tmux select-pane -t 0.0' Enter
-    tmux attach -t wfdev:window
-  )
+  cd ~/dev/; tmux new-session -d -s wfdev -n window
+  for _ in {1..3}
+    do
+      tmux send-keys -t wfdev:window 'tmux split-window -h' Enter
+  done
+  tmux send-keys -t wfdev:window 'tmux send-keys -t 0.0 "tmux select-layout tiled" Enter' Enter
+  tmux send-keys -t wfdev:window 'tmux send-keys -t 0.1 "wfdebug" Enter' Enter 
+  tmux send-keys -t wfdev:window 'tmux send-keys -t 0.2 "wms_docker_up" Enter' Enter
+  tmux send-keys -t wfdev:window 'tmux send-keys -t 0.3 "wfsync" Enter' Enter
+  tmux send-keys -t wfdev:window 'tmux select-pane -t 0.0' Enter
+  tmux attach -t wfdev:window
 }
 
 wfe() {

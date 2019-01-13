@@ -3,7 +3,6 @@ alias hosts='sudo $EDITOR /etc/hosts'
 alias vimrc='$EDITOR ~/.vimrc'
 alias bashrc='$EDITOR ~/.bashrc'
 alias reload='. ~/.bashrc'
-alias irbrc='$EDITOR ~/.irbrc'
 
 # directories
 alias dev='cd ~/dev'
