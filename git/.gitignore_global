@@ -1,14 +1,11 @@
 # dev
 **/.envrc
 **/tmp
-**/.vscode/
+**/.vscode
 **/.idea
 
-# Rails
-**/.byebug*
-
 # golang
-**/vendor/
+**/vendor
 
 # OSX
 **/.DS_Store
@@ -17,7 +14,7 @@
 # node
 **/node_modules
 **/bundle*
-**/npm-debug**
+**/npm-debug*
 
 # WF
 **/cyee_sandbox_class.php
