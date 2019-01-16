@@ -17,3 +17,6 @@ alias archive='cd ~/dev/archive'
 alias journal='cd ~/journal && code ~/journal'
 alias cellar='cd /usr/local/Cellar'
 alias books='cd ~/Google\ Drive/books'
+
+# dev
+alias zshdebug='zsh -xv'

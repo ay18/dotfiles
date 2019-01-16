@@ -18,10 +18,10 @@ eval "$(jenv init -)"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # nvm
-# export NVM_DIR="$HOME/.nvm"
-# if [[ -z "${NVM_BIN}" ]]; then
-#   . "/usr/local/opt/nvm/nvm.sh"
-# fi
+export NVM_DIR="$HOME/.nvm"
+if [[ -z "${NVM_BIN}" ]]; then
+  . "/usr/local/opt/nvm/nvm.sh"
+fi
 
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"

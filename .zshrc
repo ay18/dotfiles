@@ -9,12 +9,15 @@ export ZSH="/Users/$USER/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME=""
+<<<<<<< HEAD
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+=======
+>>>>>>> fba2b22... use pure
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -81,6 +84,10 @@ find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
   echo $(basename $FILE)
   [[ -s $FILE ]] && source $FILE
 done
+
+# Apply prompt https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
