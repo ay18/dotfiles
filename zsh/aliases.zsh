@@ -1,3 +1,5 @@
+alias devinstall='. ~/dev/dotfiles/install.sh'
+
 # files
 alias hosts='sudo $EDITOR /etc/hosts'
 alias vimrc='$EDITOR ~/.vimrc'

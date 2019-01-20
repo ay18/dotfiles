@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cyee/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -69,8 +69,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# pure https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
+
 # User configuration
-export DOTFILES="/Users/cyee/dev/dotfiles"
+export DOTFILES="/Users/$USER/dev/dotfiles"
 
 find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
   echo $(basename $FILE)
