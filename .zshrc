@@ -74,6 +74,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # User configuration
+export EMAIL="andyych88@gmail.com"
 export DOTFILES="/Users/$USER/dev/dotfiles"
 
 find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do

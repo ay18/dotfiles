@@ -12,6 +12,7 @@ brews=(
 
 casks=(
   spotify
+  whatsapp
   phpstorm
   visual-studio-code
   postman
