@@ -14,11 +14,17 @@ try_install () {
   fi
 }
 
+brew_post_install () {
+  jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/
+}
+
 config_osx () {
   defaults write com.apple.dock autohide-time-modifier -float 0.25;killall Dock
+  defaults write com.apple.finder AppleShowAllFiles YES;killall Finder
   defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
   defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 }
 
 try_install brew
 brew bundle
+config_osx
