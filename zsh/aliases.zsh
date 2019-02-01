@@ -8,7 +8,8 @@ alias reload='source $DOTFILES/.zshrc'
 
 # directories
 alias dev='cd ~/dev'
-alias dotfiles='cd ~/dev/dotfiles'
+alias dotfiles='code ~/dev/dotfiles'
+alias dotfilesdir='cd ~/dev/dotfiles'
 alias notes='code ~/dev/notes'
 alias proj='cd ~/dev/projects'
 alias lab='cd ~/dev/lab'
@@ -20,3 +21,4 @@ alias books='cd ~/Google\ Drive/books'
 
 # dev
 alias zshdebug='zsh -xv'
+alias grh='git reset --hard'
