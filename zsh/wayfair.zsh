@@ -46,13 +46,20 @@ wfe() {
   tmux kill-server
 }
 
-wfdeploy() {
+wfpull() {
   current_branch=$(git rev-parse --abbrev-ref HEAD) \
-    && wf sniff \
     && git checkout master \
     && git pull \
-    && git checkout $current_branch \
-    && git rebase master \
-    && git rebase -i $(git rev-parse origin/master) \
+    && git checkout $current_branch
+}
+
+wfrebase() {
+  git rebase -i $(git rev-parse origin/master)
+}
+
+wfdeploy() {
+  wf sniff \
+    && wfpull \
+    && wfrebase \
     && git push -uf origin $current_branch
 }
