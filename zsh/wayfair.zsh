@@ -1,4 +1,4 @@
-# Wayfair aliases
+# Wayfair environment
 # Andy Yee [cyee@wayfair.com] 2018
 
 # https://git.csnzoo.com/wayfair/wf#installation

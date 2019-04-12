@@ -1,3 +1,6 @@
+# Aliases
+# Andy Yee [anyych88@gmail.com] 2018
+
 alias devinstall='. ~/dev/dotfiles/install.sh'
 
 # files
