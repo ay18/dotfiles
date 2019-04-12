@@ -1,5 +1,5 @@
 # Dev environment
-# Andy Yee [cyee@wayfair.com] 2018
+# Andy Yee [anyych88@gmail.com] 2018
 
 # Export PATH for homebrew.
 export PATH="/usr/local/sbin:$PATH"

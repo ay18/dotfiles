@@ -1,7 +1,7 @@
 " .vimrc
 " ---------------------------------------------------------------
 " * https://github.com/sksea/dotfiles
-" * andy.sksea@gmail.com
+" * andyych88@gmail.com
 " * Plugins - managed by vim plug
 
 call plug#begin('~/.vim/plugged')

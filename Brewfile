@@ -8,8 +8,11 @@ brew "direnv"
 brew "jenv"
 brew "npm"
 brew "git"
+brew "tmux"
 brew "pipenv"
+brew "pyenv"
 brew "jenv"
+brew "gradle"
 
 # fonts
 cask "font-fira-code"
@@ -21,3 +24,6 @@ cask "whatsapp"
 cask "phpstorm"
 cask "visual-studio-code"
 cask "postman"
+
+cask "java"
+cask "java8"
