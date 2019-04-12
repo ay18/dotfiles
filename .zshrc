@@ -58,7 +58,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,5 +108,5 @@ export LANG=en_US.UTF-8
 
 export PATH="/Users/cyee/bin:$PATH"
 
-export FPATH="/Users/cyee/.wf/zsh-completion:$FPATH"
-compinit
+# https://github.com/zsh-users/zsh-autosuggestions#installation
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
