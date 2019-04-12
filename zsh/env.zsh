@@ -14,8 +14,12 @@ eval "$(direnv hook bash)"
 # jenv
 eval "$(jenv init -)"
 
-# python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# python through homebrew, prefer pyenv
+# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# pyenv
+export PATH="$(pyenv root)/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
+eval "$(pyenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

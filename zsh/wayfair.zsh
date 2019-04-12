@@ -1,6 +1,10 @@
 # Wayfair aliases
 # Andy Yee [cyee@wayfair.com] 2018
 
+# https://git.csnzoo.com/wayfair/wf#installation
+export FPATH="/Users/cyee/.wf/zsh-completion:$FPATH"
+compinit
+
 alias wfvm='ssh -t webphp0967.dev.bo1.csnzoo.com bash -l'
 alias snippets='cd ~/dev/wf-snippets'
 alias wfsnip='cd ~/dev/wf-snippets'
