@@ -15,6 +15,7 @@ alias wfphp='cd ~/codebase/php'
 alias wfdb='cd ~/codebase/db'
 alias wfand='cd ~/codebase/tangerine-mobile'
 alias wfpost='wf reviewboard post'
+alias wfsnip='code ~/dev/wf-snippets'
 
 tmreset() {
   tmux select-layout tiled
