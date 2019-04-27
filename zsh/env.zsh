@@ -18,7 +18,6 @@ eval "$(jenv init -)"
 # export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # pyenv
-export PATH="$(pyenv root)/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
 eval "$(pyenv init -)"
 
 # nvm
