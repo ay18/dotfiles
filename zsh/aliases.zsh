@@ -11,8 +11,7 @@ alias reload='source $DOTFILES/.zshrc'
 
 # directories
 alias dev='cd ~/dev'
-alias dotfiles='code ~/dev/dotfiles'
-alias dotfilesdir='cd ~/dev/dotfiles'
+alias dotfiles='cd ~/dev/dotfiles'
 alias proj='cd ~/dev/projects'
 alias lab='cd ~/dev/lab'
 alias cellar='cd /usr/local/Cellar'
