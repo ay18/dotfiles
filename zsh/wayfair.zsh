@@ -14,6 +14,7 @@ alias wfres='cd ~/codebase/resources'
 alias wfphp='cd ~/codebase/php'
 alias wfdb='cd ~/codebase/db'
 alias wfand='cd ~/codebase/tangerine-mobile'
+alias wfdev='cd ~/dev/wfdev'
 alias wfpost='wf reviewboard post'
 
 tmreset() {
