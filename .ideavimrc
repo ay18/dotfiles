@@ -1,0 +1,8 @@
+noremap: f :action AceAction<CR>
+
+set incsearch
+
+set ignorecase
+set smartcase
+
+set clipboard=unnamed
