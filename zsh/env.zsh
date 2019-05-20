@@ -22,9 +22,8 @@ eval "$(pyenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-if [[ -z "${NVM_BIN}" ]]; then
-  . "/usr/local/opt/nvm/nvm.sh"
-fi
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # php
 export PATH="/usr/local/opt/php@7.2/bin:$PATH"
