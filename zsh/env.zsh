@@ -4,18 +4,11 @@
 # Export PATH for homebrew.
 export PATH="/usr/local/sbin:$PATH"
 
-# fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--no-height --no-reverse'
-
 # direnv
 eval "$(direnv hook bash)"
 
 # jenv
 eval "$(jenv init -)"
-
-# python through homebrew, prefer pyenv
-# export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # pyenv
 eval "$(pyenv init -)"
@@ -33,3 +26,7 @@ export CPPFLAGS="-I/usr/local/opt/php@7.2/include"
 
 # composer
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
