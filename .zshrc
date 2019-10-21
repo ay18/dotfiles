@@ -1,3 +1,13 @@
+# User configuration
+export EMAIL="andyych88@gmail.com"
+export DOTFILES="/Users/$USER/dev/dotfiles"
+
+# Load zsh files
+find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
+  echo $(basename $FILE)
+  [[ -s $FILE ]] && source $FILE
+done
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -58,6 +68,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -65,15 +76,6 @@ source $ZSH/oh-my-zsh.sh
 # pure https://github.com/sindresorhus/pure
 autoload -U promptinit; promptinit
 prompt pure
-
-# User configuration
-export EMAIL="andyych88@gmail.com"
-export DOTFILES="/Users/$USER/dev/dotfiles"
-
-find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
-  echo $(basename $FILE)
-  [[ -s $FILE ]] && source $FILE
-done
 
 # Apply prompt https://github.com/sindresorhus/pure
 autoload -U promptinit; promptinit
@@ -107,6 +109,3 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/Users/cyee/bin:$PATH"
-
-# https://github.com/zsh-users/zsh-autosuggestions#installation
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
