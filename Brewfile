@@ -1,7 +1,7 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
-# bin
+# cli
 brew "zsh"
 brew "fzf"
 brew "direnv"
@@ -12,7 +12,6 @@ brew "tmux"
 brew "pipenv"
 brew "pyenv"
 brew "jenv"
-brew "gradle"
 
 # fonts
 cask "font-fira-code"
@@ -21,9 +20,6 @@ cask "font-hack"
 # apps
 cask "spotify"
 cask "whatsapp"
-cask "phpstorm"
 cask "visual-studio-code"
+casl "jetbrains-toolbox"
 cask "postman"
-
-cask "java"
-cask "java8"
