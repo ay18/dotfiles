@@ -1,4 +1,4 @@
-# Install script
+# Install script for my own dev environment
 # Andy Yee [andyych88@gmail.com] 2019
 
 EMAIL="andyych88@gmail.com"
@@ -13,7 +13,7 @@ try_install() {
     echo "Installing $1..."
     brew install $1 || install_homebrew
   else
-    echo "$1 is already installed."
+    echo "$1 is already installed." # dependency is already installed
   fi
 }
 
