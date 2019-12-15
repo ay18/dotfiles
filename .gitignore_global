@@ -1,0 +1,22 @@
+# gitignore global
+# ====================================================================
+# - https://github.com/ay18/dotfiles
+# - andyych88@gmail.com
+
+# dev
+**/.envrc
+**/tmp
+**/.vscode
+**/.idea
+
+# golang
+**/vendor
+
+# OSX
+**/.DS_Store
+.tags*
+
+# node
+**/node_modules
+**/bundle*
+**/npm-debug*
