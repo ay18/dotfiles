@@ -71,3 +71,9 @@ find -L $DOTFILES/zsh -type f -iname "*.zsh" | while read FILE; do
   echo $(basename $FILE)
   [[ -s $FILE ]] && source $FILE
 done
+
+# Load work dotfiles
+find -L $DOTFILES/work_dotfiles -type f -iname "*.zsh" | while read FILE; do
+  echo $(basename $FILE)
+  [[ -s $FILE ]] && source $FILE
+done

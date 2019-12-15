@@ -1,8 +1,8 @@
 # Install script
-# Andy Yee [andyych88@gmail.com] 2019
-
-EMAIL="andyych88@gmail.com"
-
+# ====================================================================
+# - https://github.com/ay18/dotfiles
+# - andyych88@gmail.com
+export EMAIL="andyych88@gmail.com"
 
 install_homebrew() {
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -13,7 +13,7 @@ try_install() {
     echo "Installing $1..."
     brew install $1 || install_homebrew
   else
-    echo "$1 is already installed."
+    echo "$1 is already installed." # dependency is already installed
   fi
 }
 
