@@ -1,5 +1,7 @@
-# Global Git Ignore
-# Andy Yee [anyych88@gmail.com] 2018
+# gitignore global
+# ====================================================================
+# - https://github.com/ay18/dotfiles
+# - andyych88@gmail.com
 
 # dev
 **/.envrc
