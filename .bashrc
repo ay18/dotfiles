@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # .bashrc for OS X and Ubuntu
 # ====================================================================
-# - https://github.com/junegunn/dotfiles
-# - junegunn.c@gmail.com
+# - https://github.com/ay18/dotfiles
+# - andyych88@gmail.com
 
 export EMAIL="andyych88@gmail.com"
 export DOTFILES=~"/dev/dotfiles"
@@ -29,6 +29,9 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
+# brew install bash-completion
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 miniprompt() {
   unset PROMPT_COMMAND
   PS1="\[\e[38;5;168m\]> \[\e[0m\]"
@@ -51,5 +54,8 @@ alias lab="cd ~/dev/lab"
 
 # dev
 alias grh="git reset --hard"
+alias gc="git commit"
+alias gco="git checkout"
+alias gs="git status"
 
 . ./work_dotfiles/venmo.sh
