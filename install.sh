@@ -1,8 +1,8 @@
-# Install script for my own dev environment
-# Andy Yee [andyych88@gmail.com] 2019
-
-EMAIL="andyych88@gmail.com"
-
+# Install script
+# ====================================================================
+# - https://github.com/ay18/dotfiles
+# - andyych88@gmail.com
+export EMAIL="andyych88@gmail.com"
 
 install_homebrew() {
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
