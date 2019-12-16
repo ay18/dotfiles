@@ -5,7 +5,7 @@
 # - andyych88@gmail.com
 
 export EMAIL="andyych88@gmail.com"
-export DOTFILES=~"/dev/dotfiles"
+export DOTFILES="$HOME/dev/dotfiles"
 
 # Prompt
 # --------------------------------------------------------------------
@@ -58,4 +58,4 @@ alias gc="git commit"
 alias gco="git checkout"
 alias gs="git status"
 
-. ./work_dotfiles/venmo.sh
+. "$DOTFILES/work_dotfiles/venmo.sh"
