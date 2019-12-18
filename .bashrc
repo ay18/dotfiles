@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # .bashrc for OS X and Ubuntu
 # ====================================================================
 # - https://github.com/ay18/dotfiles
@@ -24,7 +23,7 @@ else
   PS1="\[\e[34m\]\u\[\e[1;32m\]@\[\e[0;33m\]\h\[\e[35m\]:\[\e[m\]\w\[\e[1;30m\]$(__git_ps1)\[\e[1;31m\]> \[\e[0m\]"
 fi
 
-#  brew install bash-git-prompt
+# brew install bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
   GIT_PROMPT_ONLY_IN_REPO=1
