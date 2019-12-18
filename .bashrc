@@ -6,6 +6,8 @@
 
 export EMAIL="andyych88@gmail.com"
 export DOTFILES="$HOME/dev/dotfiles"
+export EDITOR=code
+export PLATFORM=$(uname -s)
 
 # Prompt
 # --------------------------------------------------------------------
@@ -36,6 +38,27 @@ miniprompt() {
   unset PROMPT_COMMAND
   PS1="\[\e[38;5;168m\]> \[\e[0m\]"
 }
+
+# Environment
+# --------------------------------------------------------------------
+
+# direnv
+eval "$(direnv hook bash)"
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
 
 # Aliases
 # --------------------------------------------------------------------
