@@ -79,5 +79,6 @@ alias grh="git reset --hard"
 alias gc="git commit"
 alias gco="git checkout"
 alias gs="git status"
+alias gcl!='git checkout . && git clean -f'
 
 . "$DOTFILES/work_dotfiles/venmo.sh"
