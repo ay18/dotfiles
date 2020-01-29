@@ -8,6 +8,7 @@
 **/tmp
 **/.vscode
 **/.idea
+**/ay_sandbox
 
 # golang
 **/vendor

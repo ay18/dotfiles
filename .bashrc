@@ -58,6 +58,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
+# Functions
+# --------------------------------------------------------------------
+get_current_branch () {
+  current_branch="$(git rev-parse --abbrev-ref HEAD)"
+}
 
 # Aliases
 # --------------------------------------------------------------------
@@ -80,5 +85,6 @@ alias gc="git commit"
 alias gco="git checkout"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
+alias gpu!="git push -uf origin $(get_current_branch)"
 
 . "$DOTFILES/work_dotfiles/venmo.sh"
