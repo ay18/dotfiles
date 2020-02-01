@@ -4,19 +4,6 @@
 # - andyych88@gmail.com
 export EMAIL="andyych88@gmail.com"
 
-install_homebrew() {
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
-
-try_install() {
-  if [[ ! -a /usr/local/bin/$1 ]]; then
-    echo "Installing $1..."
-    brew install $1 || install_homebrew
-  else
-    echo "$1 is already installed." # dependency is already installed
-  fi
-}
-
 config_osx() {
   defaults write com.apple.dock autohide-time-modifier -float 0.25;killall Dock
   defaults write com.apple.finder AppleShowAllFiles YES;killall Finder
@@ -33,7 +20,7 @@ config_git() {
   git config --global core.excludesfile ~/dev/dotfiles/git/.gitignore_global
 }
 
-try_install brew
+try_install # brew
 brew bundle
 config_osx
 config_git

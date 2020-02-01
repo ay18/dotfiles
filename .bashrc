@@ -64,6 +64,13 @@ get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
 }
 
+try_install() {
+  if [[ ! -a /usr/local/bin/brew ]]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+  brew list $1 1>/dev/null || brew install $1
+}
+
 # Aliases
 # --------------------------------------------------------------------
 
@@ -87,4 +94,6 @@ alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 alias gpu!="git push -uf origin $(get_current_branch)"
 
-. "$DOTFILES/work_dotfiles/venmo.sh"
+if [ -f "$DOTFILES/work_dotfiles/venmo.sh" ]; then
+  source "$DOTFILES/work_dotfiles/venmo.sh"
+fi

@@ -2,7 +2,6 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 
 # cli
-brew "zsh"
 brew "fzf"
 brew "direnv"
 brew "jenv"
@@ -12,6 +11,7 @@ brew "tmux"
 brew "pipenv"
 brew "pyenv"
 brew "jenv"
+brew "grep"
 
 # fonts
 cask "font-fira-code"
