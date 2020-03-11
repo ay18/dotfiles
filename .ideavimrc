@@ -1,7 +1,7 @@
 noremap: f :action AceAction<CR>
 
 set incsearch
-
+set hlsearch
 set ignorecase
 set smartcase
 
