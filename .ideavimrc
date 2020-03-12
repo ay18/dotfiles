@@ -1,8 +1,16 @@
-noremap: f :action AceAction<CR>
-
+" to set vim sane configs
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 
+" to share vim yank with clipboard
 set clipboard=unnamed
+set multiple-cursors
+
+" to set <l> for easymotion
+let mapleader=","
+set easymotion
+
+" to remap <ll> to <l>
+map <Leader> <Plug>(easymotion-prefix)
