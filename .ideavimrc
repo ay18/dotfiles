@@ -8,9 +8,5 @@ set smartcase
 set clipboard=unnamed
 set multiple-cursors
 
-" to set <l> for easymotion
 let mapleader=","
-set easymotion
-
-" to remap <ll> to <l>
-map <Leader> <Plug>(easymotion-prefix)
+noremap <Leader> :action AceAction<CR>
