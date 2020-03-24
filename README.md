@@ -1,2 +1,5 @@
-## dotfiles
-My dotfiles and other configs. 😴🌊
+🏡 my dotfiles 🌊
+```
+# git clone this repo (to ~/dev), then:
+. ./install.sh
+```

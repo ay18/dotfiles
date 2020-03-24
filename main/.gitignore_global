@@ -4,10 +4,10 @@
 # - andyych88@gmail.com
 
 # dev
+.vscode/
+.idea/
 **/.envrc
 **/tmp
-**/.vscode
-**/.idea
 **/ay_sandbox
 
 # golang
