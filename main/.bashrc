@@ -80,15 +80,15 @@ function rbm () {
 
 # files
 alias hosts="sudo $EDITOR /etc/hosts"
-alias vimrc="$EDITOR ~/.vimrc"
-alias bashrc="$EDITOR ~/.bashrc"
-alias reload=". $DOTFILES/.bashrc"
+alias vimrc="$EDITOR ~/main/.vimrc"
+alias bashrc="$EDITOR ~/main/.bashrc"
+alias reload=". $DOTFILES/main/.bashrc"
 
 # directories
-alias dev="cd ~/dev"
+alias dev="cd $DEV"
 alias dotfiles="cd $DOTFILES"
-alias proj="cd ~/dev/projects"
-alias lab="cd ~/dev/lab"
+alias proj="cd $DEV/projects"
+alias lab="cd $DEV/lab"
 
 # dev
 alias grh="git reset --hard"

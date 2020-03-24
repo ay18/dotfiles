@@ -2,6 +2,7 @@
 # ====================================================================
 # - https://github.com/ay18/dotfiles
 # - andyych88@gmail.com
+
 export EMAIL="andyych88@gmail.com"
 export DEV="$HOME/dev"
 
@@ -20,7 +21,7 @@ config_osx() {
 
 config_git() {
   # email and name might be different per environment
-  git config --global core.excludesfile ~/dev/dotfiles/git/.gitignore_global
+  git config --global core.excludesfile $HOME/.gitignore_global
   git config --global merge.tool vscode
   git config --global mergetool.vscode.cmd "code --wait $MERGED"
   git config --global diff.tool vscode
