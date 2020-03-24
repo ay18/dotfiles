@@ -4,7 +4,8 @@
 # - andyych88@gmail.com
 
 export EMAIL="andyych88@gmail.com"
-export DOTFILES="$HOME/dev/dotfiles"
+export DEV="$HOME/dev"
+export DOTFILES="$DEV/dotfiles"
 export EDITOR=code
 export PLATFORM=$(uname -s)
 
@@ -64,11 +65,14 @@ get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
 }
 
-try_install() {
-  if [[ ! -a /usr/local/bin/brew ]]; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
-  brew list $1 1>/dev/null || brew install $1
+function rbm () {
+  get_current_branch
+  git checkout master
+  git fetch upstream
+  git rebase upstream/master
+  git push
+  git checkout ${current_branch}
+  git rebase master
 }
 
 # Aliases
@@ -94,6 +98,6 @@ alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 alias gpu!="git push -uf origin $(get_current_branch)"
 
-if [ -f "$DOTFILES/work_dotfiles/venmo.sh" ]; then
-  source "$DOTFILES/work_dotfiles/venmo.sh"
+if [ -f "$DEV/private_dotfiles/venmo.sh" ]; then
+  source "$DEV/private_dotfiles/venmo.sh"
 fi
