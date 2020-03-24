@@ -65,7 +65,7 @@ get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
 }
 
-function rbm () {
+function grbm () {
   get_current_branch
   git checkout master
   git fetch upstream
@@ -80,13 +80,14 @@ function rbm () {
 
 # files
 alias hosts="sudo $EDITOR /etc/hosts"
-alias vimrc="$EDITOR ~/main/.vimrc"
-alias bashrc="$EDITOR ~/main/.bashrc"
-alias reload=". $DOTFILES/main/.bashrc"
+alias vimrc="$EDITOR $HOME/.vimrc"
+alias bashrc="$EDITOR $HOME/.bashrc"
+alias reload=". $HOME/.bashrc"
 
 # directories
 alias dev="cd $DEV"
 alias dotfiles="cd $DOTFILES"
+alias pdotfiles="cd $DEV/private_dotfiles"
 alias proj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 
