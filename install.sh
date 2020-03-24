@@ -19,8 +19,12 @@ config_osx() {
 }
 
 config_git() {
-  git config --global user.name "Andy Yee"
+  # email and name might be different per environment
   git config --global core.excludesfile ~/dev/dotfiles/git/.gitignore_global
+  git config --global merge.tool vscode
+  git config --global mergetool.vscode.cmd "code --wait $MERGED"
+  git config --global diff.tool vscode
+  git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
 }
 
 create_dirs() {
