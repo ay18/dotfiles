@@ -86,8 +86,8 @@ alias reload=". $HOME/.bashrc"
 
 # directories
 alias dev="cd $DEV"
-alias dotfiles="cd $DOTFILES"
-alias pdotfiles="cd $DEV/private_dotfiles"
+alias dot="cd $DOTFILES"
+alias pdot="cd $DEV/private_dotfiles"
 alias proj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 
