@@ -2,6 +2,7 @@
 # ====================================================================
 # - https://github.com/ay18/dotfiles
 # - andyych88@gmail.com
+
 export EMAIL="andyych88@gmail.com"
 export DEV="$HOME/dev"
 
