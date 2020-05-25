@@ -12,7 +12,7 @@ export PLATFORM=$(uname -s)
 # Prompt
 # --------------------------------------------------------------------
 
-PS1="\A \[\e[34m\]\u\[\e[1;32m\] @ \[\e[0;33m\]\h\[\e[m\] $ "
+PS1="△  \w $ "
 # brew install bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
