@@ -59,6 +59,10 @@ function grbm () {
   git rebase master
 }
 
+function gpu! () {
+  git push -uf origin $(get_current_branch)
+}
+
 # Aliases
 # --------------------------------------------------------------------
 
@@ -81,7 +85,6 @@ alias gc="git commit"
 alias gco="git checkout"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
-alias gpu!="git push -uf origin $(get_current_branch)"
 
 if [ -f "$DEV/private_dotfiles/venmo.sh" ]; then
   source "$DEV/private_dotfiles/venmo.sh"
