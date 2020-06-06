@@ -66,9 +66,9 @@ gpu! () {
   git push -uf origin $(get_current_branch)
 }
 
-# copy a filename from /scripts to clipboard
+# copy a filename in folder (default to ~) to clipboard
 scl () {
-  (cd $DEV/scripts && du -a . | awk '{print $2}' | grep -v .git) | fzf | xargs -I "file={}; echo $file" | tr -d '\n' | pbcopy
+  (cd $1 && du -a . | awk '{print $2}' | grep -v .git) | fzf | xargs -I "file={}; echo $file" | tr -d '\n' | pbcopy
 }
 
 
