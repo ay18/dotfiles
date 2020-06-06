@@ -9,6 +9,7 @@ export DOTFILES="$DEV/dotfiles"
 export EDITOR=code
 export PLATFORM=$(uname -s)
 
+
 # Prompt
 # --------------------------------------------------------------------
 
@@ -22,6 +23,7 @@ fi
 
 # brew install bash-completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 
 # Environment
 # --------------------------------------------------------------------
@@ -43,13 +45,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
+
 # Functions
 # --------------------------------------------------------------------
 get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
 }
 
-function grbm () {
+grbm () {
   get_current_branch
   git checkout master
   git fetch upstream
@@ -59,9 +62,15 @@ function grbm () {
   git rebase master
 }
 
-function gpu! () {
+gpu! () {
   git push -uf origin $(get_current_branch)
 }
+
+# copy a filename from /scripts to clipboard
+scl () {
+  (cd $DEV/scripts && du -a . | awk '{print $2}' | grep -v .git) | fzf | xargs -I "file={}; echo $file" | tr -d '\n' | pbcopy
+}
+
 
 # Aliases
 # --------------------------------------------------------------------
