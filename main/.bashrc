@@ -66,10 +66,26 @@ gpu! () {
   git push -uf origin $(get_current_branch)
 }
 
-# copy a filename in folder (default to ~) to clipboard
+# copy a filename in dir to clipboard (defaults to current dir)
 scl () {
-  (cd $1 && du -a . | awk '{print $2}' | grep -v .git) | fzf | xargs -I "file={}; echo $file" | tr -d '\n' | pbcopy
+  if [ $# -eq 0 ]; then
+    path=.
+  else
+    path=$1
+  fi
+  (cd $path && du -a . | awk '{print $2}' | grep -v .git) | fzf | xargs -I "file={}; echo $file" | tr -d '\n' | pbcopy
 }
+
+# find and open file in editor
+ff () {
+  scl $1 && pbpaste | xargs $EDITOR
+}
+
+
+# Keybinds
+# --------------------------------------------------------------------
+
+bind -x '"\C-f": ff'
 
 
 # Aliases
