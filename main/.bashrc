@@ -62,6 +62,10 @@ grbm () {
   git rebase master
 }
 
+gco () {
+  git branch | fzf | xargs -I {} git checkout {}
+}
+
 gpu! () {
   git push -uf origin $(get_current_branch)
 }
@@ -107,7 +111,6 @@ alias lab="cd $DEV/lab"
 # dev
 alias grh="git reset --hard"
 alias gc="git commit"
-alias gco="git checkout"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 
