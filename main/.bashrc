@@ -63,7 +63,11 @@ grbm () {
 }
 
 gco () {
-  git branch | fzf | xargs -I {} git checkout {}
+  if [ $# -eq 0 ]; then
+    git branch | fzf | xargs -I {} git checkout {}
+  else
+    git checkout $@
+  fi
 }
 
 gpu! () {
