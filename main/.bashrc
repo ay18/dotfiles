@@ -45,6 +45,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
+# openssl needed for compilers
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
 
 # Functions
 # --------------------------------------------------------------------
@@ -121,3 +126,5 @@ alias gcl!='git checkout . && git clean -f'
 if [ -f "$DEV/private_dotfiles/venmo.sh" ]; then
   source "$DEV/private_dotfiles/venmo.sh"
 fi
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"

@@ -5,3 +5,4 @@ if [ -f /etc/profile ]; then
 fi
 
 . ~/.bashrc
+
