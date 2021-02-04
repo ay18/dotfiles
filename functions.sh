@@ -3,7 +3,7 @@
 # bash functions to be called from other tools
 # ====================================================================
 # - https://github.com/ay18/dotfiles
-# - andyych88@gmail.com
+# - andyyee.dev@gmail.com
 
 ghblame() {
   _open_repo $1 $2 "blame"

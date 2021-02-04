@@ -1,9 +1,9 @@
 # Install script
 # ====================================================================
 # - https://github.com/ay18/dotfiles
-# - andyych88@gmail.com
+# - andyyee.dev@gmail.com
 
-export EMAIL="andyych88@gmail.com"
+export EMAIL="andyyee.dev@gmail.com"
 export DEV="$HOME/dev"
 
 generate_ssh_key() {

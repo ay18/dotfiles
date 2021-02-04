@@ -1,7 +1,7 @@
 " .vimrc
 " ---------------------------------------------------------------
 " * https://github.com/sksea/dotfiles
-" * andyych88@gmail.com
+" * andyyee.dev@gmail.com
 " * Plugins - managed by vim plug
 
 if empty(glob('~/.vim/autoload/plug.vim'))
