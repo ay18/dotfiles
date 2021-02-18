@@ -123,8 +123,8 @@ alias gc="git commit"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 
-if [ -f "$DEV/private_dotfiles/venmo.sh" ]; then
-  source "$DEV/private_dotfiles/venmo.sh"
+if [ -f "$DEV/private_dotfiles/aws.sh" ]; then
+  source "$DEV/private_dotfiles/aws.sh"
 fi
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
