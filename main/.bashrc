@@ -126,5 +126,10 @@ alias gcl!='git checkout . && git clean -f'
 if [ -f "$DEV/private_dotfiles/aws.sh" ]; then
   source "$DEV/private_dotfiles/aws.sh"
 fi
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
+
+
