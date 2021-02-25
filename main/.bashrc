@@ -117,6 +117,9 @@ alias pdot="cd $DEV/private_dotfiles"
 alias proj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 # dev
 alias grh="git reset --hard"
 alias gc="git commit"
