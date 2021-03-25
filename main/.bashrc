@@ -6,14 +6,20 @@
 export EMAIL="andyyee.dev@gmail.com"
 export DEV="$HOME/dev"
 export DOTFILES="$DEV/dotfiles"
-export EDITOR=code
 export PLATFORM=$(uname -s)
+
+if [ "$PLATFORM" = 'Darwin' ]; then
+  export EDITOR=code
+else
+  export EDITOR=vim
+fi
 
 
 # Prompt
 # --------------------------------------------------------------------
 
-PS1="△  \w $ "
+PS1="△ ($PLATFORM) \w $ "
+
 # brew install bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share

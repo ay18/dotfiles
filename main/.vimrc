@@ -1,6 +1,6 @@
 " .vimrc
 " ---------------------------------------------------------------
-" * https://github.com/sksea/dotfiles
+" * https://github.com/ay18/dotfiles
 " * andyyee.dev@gmail.com
 " * Plugins - managed by vim plug
 
@@ -13,35 +13,27 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Install plugs via their github repos.
-
-Plug 'w0ng/vim-hybrid'
+"Plug 'w0ng/vim-hybrid'
 
 " ycm: requires compiling with cmake. install cmake with 'brew install cmake'.
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.py
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 
 " temporary fix for YCM when vim resolves $PATH incorrectly and selects wrong
 " python version.
 " In vim, use ':py import sys; print(sys.executable)' to check py version.
 let $PATH='/usr/bin/:'.$PATH
 
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
 Plug 'jiangmiao/auto-pairs'
-
 Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'scrooloose/nerdcommenter'
-
-Plug 'tpope/vim-fugitive'
-
-Plug 'airblade/vim-gitgutter'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'airblade/vim-gitgutter'
 
 " ag: requires the-silver-searcher, install via brew
-Plug 'rking/ag.vim'
-
-Plug 'scrooloose/nerdtree'
+"Plug 'rking/ag.vim'
+"Plug 'scrooloose/nerdtree'
 
 " vim-airline: install suitable font (like Hack) and set as shell's font.
 Plug 'vim-airline/vim-airline'
@@ -60,7 +52,7 @@ set nu
 set title
 set hlsearch
 let base16colorspace=256
-colorscheme hybrid
+" colorscheme hybrid
 
 " Behavior
 " ---------------------------------------------------------------
