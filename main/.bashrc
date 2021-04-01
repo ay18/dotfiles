@@ -1,4 +1,4 @@
-# .bashrc for OS X and Ubuntu
+# .bashrc for OS X and Linux
 # ====================================================================
 # - https://github.com/ay18/dotfiles
 # - andyyee.dev@gmail.com
@@ -119,9 +119,20 @@ alias dot="cd $DOTFILES"
 alias pdot="cd $DEV/private_dotfiles"
 alias proj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
+alias sbox="cd $DEV/sandbox"
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+if [ "$PLATFORM" = 'Darwin' ]; then
+  alias l.='ls -dG .*'
+  alias ll='ls -lG'
+  alias ls='ls -G'
+else
+  alias l.='ls -d .* --color=auto'
+  alias ll='ls -l --color=auto'
+  alias ls='ls --color=auto'
+fi
 
 # dev
 alias grh="git reset --hard"
