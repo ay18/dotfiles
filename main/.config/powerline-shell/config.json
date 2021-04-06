@@ -1,0 +1,22 @@
+{
+  "segments": [
+    "virtual_env",
+    "ssh",
+    "time",
+    "cwd",
+    "git",
+    "git_stash",
+    "hg",
+    "jobs",
+    "set_term_title",
+    "newline",
+    "root"
+  ],
+  "cwd": {
+    "mode": "plain",
+    "max_depth": 3
+  },
+  "time": {
+    "format": "%X %p"
+  }
+}

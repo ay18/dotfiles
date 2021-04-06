@@ -30,12 +30,20 @@ fi
 # brew install bash-completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+# pip install powerline-shell
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 # Environment
 # --------------------------------------------------------------------
 
 # pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
+if command -v pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
