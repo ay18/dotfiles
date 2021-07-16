@@ -8,21 +8,28 @@ export DEV="$HOME/dev"
 export DOTFILES="$DEV/dotfiles"
 export PLATFORM=$(uname -s)
 
-if [ "$PLATFORM" = 'Darwin' ]; then
+if [[ $(uname -p) == 'arm' ]]; then
+  export M1=true
+fi
+
+if [ "$M1" == true ]; then
+  export EDITOR=vim
+elif [ "$PLATFORM" = 'Darwin' ]; then
   export EDITOR=code
 else
   export EDITOR=vim
 fi
 
+# brew Apple silicon
+if [ "$M1" == true ]; then
+  export PATH=/opt/homebrew/bin:$PATH
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Prompt
 # --------------------------------------------------------------------
 
 PS1="△ ($PLATFORM) \w $ "
-
-# brew Apple silicon
-export PATH=/opt/homebrew/bin:$PATH
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # brew install bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
@@ -49,6 +56,12 @@ fi
 # pyenv
 if command -v pyenv > /dev/null; then
   eval "$(pyenv init -)"
+fi
+
+if [ "$M1" == true ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
 fi
 
 # nvm
