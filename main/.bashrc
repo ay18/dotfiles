@@ -31,10 +31,6 @@ fi
 
 PS1="△ ($PLATFORM) \w $ "
 
-# brew Apple silicon
-export PATH=/opt/homebrew/bin:$PATH
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # brew install bash-git-prompt
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
   __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
