@@ -31,13 +31,6 @@ fi
 
 PS1="△ ($PLATFORM) \w $ "
 
-# brew install bash-git-prompt
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
-  GIT_PROMPT_ONLY_IN_REPO=1
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-fi
-
 # brew install bash-completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
@@ -75,6 +68,9 @@ export NVM_DIR="$HOME/.nvm"
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
+# direnv
+[[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
 
 # openssl needed for compilers
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
