@@ -159,13 +159,13 @@ else
 fi
 
 # dev
-alias grh="git reset --hard"
+alias grh!="git reset --hard"
 alias gc="git commit"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 
-if [ -f "$DEV/private_dotfiles/aws.sh" ]; then
-  source "$DEV/private_dotfiles/aws.sh"
+if [ -s "$DEV/private_dotfiles" ]; then
+  source "$DEV/private_dotfiles/enabled.sh"
 fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
