@@ -47,15 +47,7 @@ fi
 # --------------------------------------------------------------------
 
 # pyenv
-if command -v pyenv > /dev/null; then
-  eval "$(pyenv init -)"
-fi
-
-if [ "$M1" == true ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-fi
+eval "$(pyenv init --path)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -141,7 +133,7 @@ alias reload=". $HOME/.bashrc"
 alias dev="cd $DEV"
 alias dot="cd $DOTFILES"
 alias pdot="cd $DEV/private_dotfiles"
-alias proj="cd $DEV/projects"
+alias prj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 alias sbox="cd $DEV/sandbox"
 
