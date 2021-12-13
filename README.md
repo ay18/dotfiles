@@ -1,5 +1,5 @@
-🏡 my dotfiles 🌊
+🌊
 ```
-# git clone this repo (to ~/dev), then:
+# git clone to ~/dev, then:
 . ./install.sh
 ```

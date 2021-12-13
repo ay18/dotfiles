@@ -156,9 +156,16 @@ alias gc="git commit"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 
-if [ -s "$DEV/private_dotfiles" ]; then
-  source "$DEV/private_dotfiles/enabled.sh"
+if [[ ! -d "$DEV/private_dotfiles" ]]; then
+  echo "$DEV/private_dotfiles doesn't exist. cloning."
+  git clone git@github.com:ay18/private_dotfiles.git $DEV/private_dotfiles
 fi
+
+if [[ ! -s "$DEV/enabled.sh" ]]; then
+  echo "$DEV/enabled.sh doesn't exist. creating."
+  cp $DOTFILES/enabled.sh $DEV/enabled.sh
+fi
+source $DEV/enabled.sh
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
