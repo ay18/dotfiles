@@ -6,16 +6,12 @@
 export EMAIL="andyyee.dev@gmail.com"
 export DEV="$HOME/dev"
 
-create_dirs() {
-  mkdir -p "$DEV/lab"
-  mkdir -p "$DEV/sandbox"
-  mkdir -p "$DEV/projects"
-}
+mkdir -p "$DEV/lab"
+mkdir -p "$DEV/sandbox"
+mkdir -p "$DEV/projects"
 
 echo "brewing dependencies..."
 brew bundle
 
 echo "stowing symlinks..."
 stow main --target="$HOME"
-
-setup_all
