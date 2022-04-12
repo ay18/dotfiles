@@ -26,6 +26,28 @@ if [ "$M1" == true ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+
+# Environment
+# --------------------------------------------------------------------
+
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+
+# direnv
+[[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
+
+# openssl needed for compilers
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"
+
+
 # Prompt
 # --------------------------------------------------------------------
 
@@ -42,32 +64,6 @@ function _update_ps1() {
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-
-# Environment
-# --------------------------------------------------------------------
-
-# pyenv
-eval "$(pyenv init --path)"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS='--no-height --no-reverse'
-
-# direnv
-[[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
-
-# openssl needed for compilers
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 
 # Functions
@@ -160,6 +156,8 @@ alias gc="git commit"
 alias gs="git status"
 alias gcl!='git checkout . && git clean -f'
 
+alias brew64="arch -x86_64 brew"
+
 if [[ ! -d "$DEV/private_dotfiles" ]]; then
   echo "$DEV/private_dotfiles doesn't exist. cloning."
   git clone git@github.com:ay18/private_dotfiles.git $DEV/private_dotfiles
@@ -175,4 +173,3 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
-
