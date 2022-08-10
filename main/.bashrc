@@ -43,12 +43,14 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 # direnv
 [[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
 
-# openssl needed for compilers
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-# export LDFLAGS="-L/opt/homebrew/opt/openblas/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"
+# setting compiler flags to be able to find brew dependencies
+# export PATH="$(brew --prefix openssl)/bin:$PATH"
+# export CFLAGS="-I$(brew --prefix openssl)/include"
+# export CPPFLAGS="-I$(brew --prefix openssl)/include"
+# export LDFLAGS="-L$(brew --prefix openssl)/lib"
+
+# export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
+# export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 
 
 # Prompt
@@ -87,7 +89,12 @@ grbm () {
 
 gco () {
   if [ $# -eq 0 ]; then
-    git branch | fzf | xargs -I {} git checkout {}
+    selection=$(git branch | fzf)
+    if [[ -z $selection ]]; then
+      return 1
+    fi
+
+    echo $selection | xargs -I {} git checkout {}
   else
     git checkout $@
   fi
@@ -138,7 +145,7 @@ alias dot="cd $DOTFILES"
 alias pdot="cd $DEV/private_dotfiles"
 alias prj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
-alias sbox="cd $DEV/sandbox"
+alias sb="cd $DEV/sandbox"
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
