@@ -12,9 +12,10 @@ if [[ $(uname -p) == 'arm' ]]; then
   export M1=true
 fi
 
+
 if [ "$M1" == true ]; then
   export EDITOR=vim
-elif [ "$PLATFORM" = 'Darwin' ]; then
+elif [ "$PLATFORM" == 'Darwin' ]; then
   export EDITOR=code
 else
   export EDITOR=vim
@@ -24,14 +25,16 @@ fi
 if [ "$M1" == true ]; then
   export PATH=/opt/homebrew/bin:$PATH
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
+if [ "$PLATFORM" == 'Linux' ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+fi
 
 # Environment
 # --------------------------------------------------------------------
-
-# asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
