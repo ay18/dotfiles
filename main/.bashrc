@@ -44,13 +44,13 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 [[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
 
 # setting compiler flags to be able to find brew dependencies
-# export PATH="$(brew --prefix openssl)/bin:$PATH"
-# export CFLAGS="-I$(brew --prefix openssl)/include"
-# export CPPFLAGS="-I$(brew --prefix openssl)/include"
-# export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export PATH="$(brew --prefix openssl)/bin:$PATH"
+export CFLAGS="-I$(brew --prefix openssl)/include"
+export CPPFLAGS="-I$(brew --prefix openssl)/include -I/opt/homebrew/opt/openblas/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib -L/opt/homebrew/opt/openblas/lib"
 
-# export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
-# export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
+export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 
 
 # Prompt
@@ -75,6 +75,7 @@ fi
 # --------------------------------------------------------------------
 get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
+  echo $current_branch
 }
 
 grbm () {
@@ -98,6 +99,10 @@ gco () {
   else
     git checkout $@
   fi
+}
+
+gpu () {
+  git push -u origin $(get_current_branch)
 }
 
 gpu! () {
@@ -181,5 +186,14 @@ source $DEV/enabled.sh
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# AWS EKS
+# https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+export PATH=$PATH:$HOME/bin
+
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/andyyee/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
