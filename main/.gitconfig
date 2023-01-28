@@ -1,7 +1,10 @@
 [user]
 	email = andyyee.dev@gmail.com
+  name = Andy Yee
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 [pull]
 	rebase = true
+[init]
+  defaultBranch = main
