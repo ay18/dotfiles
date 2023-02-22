@@ -44,10 +44,11 @@ export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 [[ -f "`which direnv`" ]] && eval "$(direnv hook bash)"
 
 # setting compiler flags to be able to find brew dependencies
-export PATH="$(brew --prefix openssl)/bin:$PATH"
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export CPPFLAGS="-I$(brew --prefix openssl)/include -I/opt/homebrew/opt/openblas/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib -L/opt/homebrew/opt/openblas/lib"
+# TODO: `brew --prefix` is really slow, remove redundant calls here.
+# export PATH="$(brew --prefix openssl)/bin:$PATH"
+# export CFLAGS="-I$(brew --prefix openssl)/include"
+# export CPPFLAGS="-I$(brew --prefix openssl)/include -I/opt/homebrew/opt/openblas/include"
+# export LDFLAGS="-L$(brew --prefix openssl)/lib -L/opt/homebrew/opt/openblas/lib"
 
 export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
