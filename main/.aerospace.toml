@@ -89,26 +89,30 @@ outer.right =      0
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-ctrl-shift-slash = 'layout tiles horizontal horizontal'
-alt-ctrl-shift-comma = 'layout accordion horizontal horizontal'
+alt-ctrl-shift-slash = 'layout tiles horizontal vertical'
+alt-ctrl-shift-comma = 'layout accordion horizontal vertical'
 
 cmd-alt-ctrl-shift-r = 'flatten-workspace-tree'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+cmd-ctrl-a = 'focus left'
+cmd-ctrl-s = 'focus down'
+cmd-ctrl-w = 'focus up'
+cmd-ctrl-d = 'focus right'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-ctrl-shift-a = 'move left'
 alt-ctrl-shift-s = 'move down'
 alt-ctrl-shift-w = 'move up'
 alt-ctrl-shift-d = 'move right'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
 cmd-alt-ctrl-shift-a = ['join-with left']
 cmd-alt-ctrl-shift-s = ['join-with down']
 cmd-alt-ctrl-shift-w = ['join-with up']
 cmd-alt-ctrl-shift-d = ['join-with right']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-cmd-alt-ctrl-shift-minus = 'resize smart -50'
-cmd-alt-ctrl-shift-equal = 'resize smart +50'
+cmd-alt-ctrl-shift-minus = 'resize smart -250'
+cmd-alt-ctrl-shift-equal = 'resize smart +250'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-ctrl-shift-1 = 'workspace 1'
