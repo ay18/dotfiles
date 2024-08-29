@@ -92,7 +92,7 @@ outer.right =      0
 alt-ctrl-shift-slash = 'layout tiles horizontal vertical'
 alt-ctrl-shift-comma = 'layout accordion horizontal vertical'
 
-cmd-alt-ctrl-shift-r = 'flatten-workspace-tree'
+# cmd-alt-ctrl-shift-r = 'flatten-workspace-tree'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 cmd-ctrl-a = 'focus left'
@@ -105,6 +105,7 @@ alt-ctrl-shift-a = 'move left'
 alt-ctrl-shift-s = 'move down'
 alt-ctrl-shift-w = 'move up'
 alt-ctrl-shift-d = 'move right'
+
 cmd-alt-ctrl-shift-a = ['join-with left']
 cmd-alt-ctrl-shift-s = ['join-with down']
 cmd-alt-ctrl-shift-w = ['join-with up']
@@ -145,12 +146,8 @@ cmd-alt-ctrl-shift-semicolon = 'mode service'
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main'] # reset layout
+# r = ['flatten-workspace-tree', 'mode main'] # reset layout
 #s = ['layout sticky tiling', 'mode main'] # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+# f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-cmd-alt-ctrl-shift-a = ['join-with left', 'mode main']
-cmd-alt-ctrl-shift-s = ['join-with down', 'mode main']
-cmd-alt-ctrl-shift-w = ['join-with up', 'mode main']
-cmd-alt-ctrl-shift-d = ['join-with right', 'mode main']
