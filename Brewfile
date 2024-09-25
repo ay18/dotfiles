@@ -3,6 +3,7 @@ tap "homebrew/cask-fonts"
 
 # cli
 brew "fzf"
+brew "zoxide"
 brew "direnv"
 brew "npm"
 brew "git"
