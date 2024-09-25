@@ -13,12 +13,12 @@ export EDITOR=vim
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 if [ $(uname -p) = 'arm' ]; then
-  export M1=true
+  export ARM=true
 fi
 
 
 # brew Apple silicon
-if [ "$M1" = true ]; then
+if [ "$ARM" = true ]; then
   export PATH=/opt/homebrew/bin:$PATH
   eval "$(/opt/homebrew/bin/brew shellenv)"
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -45,6 +45,9 @@ fi
 autoload -Uz compinit
 compinit
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # starship
 export STARSHIP_CONFIG=~/.config/starship.toml
