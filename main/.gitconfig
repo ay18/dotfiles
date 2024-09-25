@@ -2,8 +2,8 @@
 	email = andyyee.dev@gmail.com
   name = Andy Yee
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = code --wait
+	excludesfile = /Users/andyyee/.gitignore
+	editor = vim
 [pull]
 	rebase = true
 [init]
