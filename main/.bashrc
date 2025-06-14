@@ -198,3 +198,5 @@ export PATH="$HOME/.serverless/bin:$PATH"
 export PNPM_HOME="/Users/andyyee/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+. "/Users/andyyee/.deno/env"

@@ -154,6 +154,7 @@ alias pdot="cd $DEV/private_dotfiles"
 alias prj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 alias sb="cd $DEV/sandbox"
+alias csr="cursor"
 
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -200,3 +201,5 @@ export PATH="$HOME/.serverless/bin:$PATH"
 export PNPM_HOME="/Users/andyyee/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+. "/Users/andyyee/.deno/env"

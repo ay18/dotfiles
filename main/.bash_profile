@@ -6,3 +6,4 @@ fi
 
 . ~/.bashrc
 
+. "/Users/andyyee/.deno/env"
