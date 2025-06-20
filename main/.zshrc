@@ -155,7 +155,10 @@ alias prj="cd $DEV/projects"
 alias lab="cd $DEV/lab"
 alias sb="cd $DEV/sandbox"
 alias csr="cursor"
+alias c="claude"
+alias ccc="claude -p"
 
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
@@ -176,6 +179,11 @@ alias gc="git commit"
 alias gs="git status"
 alias gcp="git cherry-pick"
 alias gw="git worktree"
+alias gwl="git worktree list"
+
+gwa () {
+  git worktree add .trees/$1
+}
 
 alias brew64="arch -x86_64 brew"
 
@@ -203,3 +211,9 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 . "/Users/andyyee/.deno/env"
+
+# iterm
+precmd() {
+    echo -ne "\033]0;${PWD##*/}\007"
+}
+
