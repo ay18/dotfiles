@@ -156,6 +156,7 @@ alias lab="cd $DEV/lab"
 alias sb="cd $DEV/sandbox"
 alias csr="cursor"
 
+alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
@@ -176,6 +177,11 @@ alias gc="git commit"
 alias gs="git status"
 alias gcp="git cherry-pick"
 alias gw="git worktree"
+alias gwl="git worktree list"
+
+gwa () {
+  git worktree add .trees/$1
+}
 
 alias brew64="arch -x86_64 brew"
 
