@@ -61,20 +61,19 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # direnv
 if command -v direnv >/dev/null 2>&1; then
-  # Load direnv normally first
-  eval "$(direnv hook zsh)"
-  
+  # load direnv hook with ANSI stripping to prevent zsh "bad pattern" errors
+  eval "$(direnv hook zsh | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g')"
 
-  # Override the _direnv_hook function
   _direnv_hook() {
     local previous_exit_status=$?
     
-    # Capture direnv output
-    local output=$(DIRENV_LOG_FORMAT='direnv: %s' direnv export zsh 2>&1)
+    # capture direnv output with ANSI stripping
+    local output=$(DIRENV_LOG_FORMAT='direnv: %s' direnv export zsh 2>&1 | sed 's/\x1b\[[0-9;]*[a-zA-Z]//g')
     
-    # Apply the export quietl
-    if [[ -n "$output" ]]; then
-      eval "$(echo "$output" | grep -v '^direnv:' | grep -v '^$')"
+    # apply the export quietly - filter to only shell commands
+    local shell_cmds=$(echo "$output" | grep -E '^(export|unset)' || true)
+    if [[ -n "$shell_cmds" ]]; then
+      eval "$shell_cmds"
     fi
     
     if echo "$output" | grep -q "^direnv: loading"; then
