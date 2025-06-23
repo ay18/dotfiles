@@ -60,7 +60,40 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # direnv
-[ -f "`which direnv`" ] && eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then
+  # Load direnv normally first
+  eval "$(direnv hook zsh)"
+  
+
+  # Override the _direnv_hook function
+  _direnv_hook() {
+    local previous_exit_status=$?
+    
+    # Capture direnv output
+    local output=$(DIRENV_LOG_FORMAT='direnv: %s' direnv export zsh 2>&1)
+    
+    # Apply the export quietl
+    if [[ -n "$output" ]]; then
+      eval "$(echo "$output" | grep -v '^direnv:' | grep -v '^$')"
+    fi
+    
+    if echo "$output" | grep -q "^direnv: loading"; then
+      local count=$(echo "$output" | grep "^direnv: export" | grep -o '+[A-Za-z_][A-Za-z0-9_]*' | wc -l | xargs)
+      if [[ $count -gt 0 ]]; then
+        echo "[direnv] env loaded, $count vars"
+      else
+        echo "[direnv] env loaded"
+      fi
+    elif echo "$output" | grep -q "^direnv: unloading"; then
+      echo "[direnv] env unloaded"
+    fi
+    
+    return $previous_exit_status
+  }
+  
+  # Set quiet mode
+  export DIRENV_LOG_FORMAT=""
+fi
 
 # setting compiler flags to be able to find brew dependencies
 # TODO: `brew --prefix` is really slow, remove redundant calls here.
