@@ -1,6 +1,21 @@
-format = """$directory$git_branch$aws$kubernetes
+format = """$directory${custom.git_worktree}$git_branch$aws$kubernetes
 $character"""
 
+[custom.git_worktree]
+command = '''
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  main_dir=$(git worktree list | head -1 | awk '{print $1}')
+  current_dir=$(git rev-parse --show-toplevel)
+  if [ "$main_dir" != "$current_dir" ]; then
+    echo "🌴 $(basename $main_dir)"
+  fi
+fi
+'''
+when = "git rev-parse --is-inside-work-tree 2>/dev/null"
+format = "[$output]($style) "
+style = "bold green"
+
+# Then other modules
 [kubernetes]
 disabled = false
 format = '[$symbol$context( \($namespace\))]($style) '
