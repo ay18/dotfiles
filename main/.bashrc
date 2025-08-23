@@ -198,5 +198,9 @@ export PATH="$HOME/.serverless/bin:$PATH"
 export PNPM_HOME="/Users/andyyee/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+<<<<<<< Updated upstream
 
 . "/Users/andyyee/.deno/env"
+=======
+. "/Users/andyyee/.deno/env"
+>>>>>>> Stashed changes

@@ -205,9 +205,13 @@ export PATH="$HOME/.serverless/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/Users/andyyee/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
+<<<<<<< Updated upstream
 . "/Users/andyyee/.deno/env"
 
 # iterm
@@ -215,3 +219,9 @@ precmd() {
     echo -ne "\033]0;${PWD##*/}\007"
 }
 
+=======
+# Added by Windsurf
+export PATH="/Users/andyyee/.codeium/windsurf/bin:$PATH"
+
+. "/Users/andyyee/.deno/env"
+>>>>>>> Stashed changes
