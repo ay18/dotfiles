@@ -211,7 +211,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-<<<<<<< Updated upstream
 . "/Users/andyyee/.deno/env"
 
 # iterm
@@ -219,9 +218,3 @@ precmd() {
     echo -ne "\033]0;${PWD##*/}\007"
 }
 
-=======
-# Added by Windsurf
-export PATH="/Users/andyyee/.codeium/windsurf/bin:$PATH"
-
-. "/Users/andyyee/.deno/env"
->>>>>>> Stashed changes
