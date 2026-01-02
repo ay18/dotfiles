@@ -105,6 +105,49 @@ gco () {
   fi
 }
 
+gcob() {
+  # Usage: gcob [-b base_branch] <new_branch_name>
+  # Creates a new branch off of origin/main (or specified base branch) and pushes it to origin.
+  local base_branch="main"
+  local opt
+  local OPTIND=1
+
+  while getopts ":b:" opt; do
+    case ${opt} in
+      b)
+        base_branch=$OPTARG
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG" >&2
+        return 1
+        ;;
+      :)
+        echo "Option -$OPTARG requires an argument." >&2
+        return 1
+        ;;
+    esac
+  done
+  shift $((OPTIND -1))
+
+  local name="$1"
+  if [[ -z "$name" ]]; then
+    echo "usage: gcob [-b base_branch] <branch-name>" >&2
+    return 2
+  fi
+  git rev-parse --git-dir >/dev/null 2>&1 || { echo "not a git repo" >&2; return 2; }
+  git fetch origin "$base_branch" || return 1
+  if git show-ref --verify --quiet "refs/heads/$name"; then
+    echo "local branch exists: $name" >&2
+    return 1
+  fi
+  if git ls-remote --heads origin "$name" | grep -q .; then
+    echo "remote branch exists: origin/$name" >&2
+    return 1
+  fi
+  git switch -c "$name" "origin/$base_branch" || return 1
+  git push -u origin "$name"
+}
+
 gpu () {
   git push -u origin $(get_current_branch)
 }
