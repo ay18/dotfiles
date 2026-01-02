@@ -113,6 +113,26 @@ gpu! () {
   git push -uf origin $(get_current_branch)
 }
 
+gcom() {
+  local name="$1"
+  if [[ -z "$name" ]]; then
+    echo "usage: gcom <branch-name>" >&2
+    return 2
+  fi
+  git rev-parse --git-dir >/dev/null 2>&1 || { echo "not a git repo" >&2; return 2; }
+  git fetch origin main || return 1
+  if git show-ref --verify --quiet "refs/heads/$name"; then
+    echo "local branch exists: $name" >&2
+    return 1
+  fi
+  if git ls-remote --heads origin "$name" | grep -q .; then
+    echo "remote branch exists: origin/$name" >&2
+    return 1
+  fi
+  git switch -c "$name" "origin/main" || return 1
+  git push -u origin "$name"
+}
+
 # copy a filename in dir to clipboard (defaults to current dir)
 scl () {
   if [ $# -eq 0 ]; then
@@ -203,14 +223,6 @@ export PATH=$PATH:$HOME/bin
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/andyyee/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 . "/Users/andyyee/.deno/env"
 
 # iterm
@@ -218,3 +230,11 @@ precmd() {
     echo -ne "\033]0;${PWD##*/}\007"
 }
 
+
+. "$HOME/.local/bin/env"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+# Added by Antigravity
+export PATH="/Users/andyyee/.antigravity/antigravity/bin:$PATH"
+\n# Go binaries\nexport PATH="$PATH:$(go env GOPATH)/bin"

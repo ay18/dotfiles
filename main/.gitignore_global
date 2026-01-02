@@ -9,6 +9,9 @@
 **/.bloop
 **/.idea
 **/.metals
+**/changelog
+**/.env*
+**/.gemini-clipboard
 
 # golang
 vendor
@@ -21,4 +24,3 @@ vendor
 node_modules
 bundle*
 npm-debug*
-

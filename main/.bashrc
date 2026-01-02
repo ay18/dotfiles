@@ -133,7 +133,7 @@ timestamp () {
 # Keybinds
 # --------------------------------------------------------------------
 
-bind -x '"\C-f": ff'
+# bind -x '"\C-f": ff'
 
 
 # Aliases
@@ -194,13 +194,6 @@ export PATH=$PATH:$HOME/bin
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/andyyee/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
-<<<<<<< Updated upstream
+. "/Users/andyyee/.deno/env"
 
-. "/Users/andyyee/.deno/env"
-=======
-. "/Users/andyyee/.deno/env"
->>>>>>> Stashed changes
+. "$HOME/.local/bin/env"
