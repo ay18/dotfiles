@@ -156,6 +156,13 @@ gpu! () {
   git push -uf origin $(get_current_branch)
 }
 
+# gdpu! - delete remote branch
+# Usage: gdpu! [branch] - deletes branch from origin (defaults to current branch)
+gdpu! () {
+  local branch="${1:-$(get_current_branch)}"
+  git push origin --delete "$branch"
+}
+
 # copy a filename in dir to clipboard (defaults to current dir)
 scl () {
   if [ $# -eq 0 ]; then
