@@ -83,13 +83,8 @@ get_current_branch () {
 }
 
 grbm () {
-  get_current_branch
-  git checkout master
-  git fetch upstream
-  git rebase upstream/master
-  git push
-  git checkout ${current_branch}
-  git rebase master
+  git fetch origin
+  git rebase origin/main
 }
 
 gco () {
