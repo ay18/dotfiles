@@ -266,3 +266,4 @@ precmd() {
 # Go binaries
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+export PATH="$HOME/.local/bin:$PATH"
