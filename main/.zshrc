@@ -87,6 +87,19 @@ grbm () {
   git rebase origin/main
 }
 
+gnb () {
+  local name="$1"
+  if [[ -z "$name" ]]; then
+    local word1 word2 hash
+    local words=($(grep -E '^[a-z]{4,8}$' /usr/share/dict/words | awk 'BEGIN{srand()} {a[NR]=$0} END{n=NR; print a[int(rand()*n)+1]; print a[int(rand()*n)+1]}'))
+    word1=${words[1]}
+    word2=${words[2]}
+    hash=$(openssl rand -hex 3 | cut -c1-5)
+    name="${word1}-${word2}-${hash}"
+  fi
+  git fetch origin main && git checkout -b "$name" origin/main
+}
+
 gco () {
   if [ $# -eq 0 ]; then
     selection=$(git branch | fzf)
