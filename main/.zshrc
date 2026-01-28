@@ -75,18 +75,22 @@ export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL=1
 export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=1
 
 
-# Functions
+# Git Functions
 # --------------------------------------------------------------------
+
+# get_current_branch - returns the name of the current git branch
 get_current_branch () {
   current_branch="$(git rev-parse --abbrev-ref HEAD)"
   echo $current_branch
 }
 
+# grbm - fetch and rebase current branch onto origin/main
 grbm () {
   git fetch origin
   git rebase origin/main
 }
 
+# gnb [name] - create new branch from origin/main (generates random name if not provided)
 gnb () {
   local name="$1"
   if [[ -z "$name" ]]; then
@@ -100,10 +104,11 @@ gnb () {
   git fetch origin main && git checkout -b "$name" origin/main
 }
 
+# gco [branch] - checkout branch with fzf selection, or checkout specified branch
 gco () {
   if [ $# -eq 0 ]; then
     selection=$(git branch | fzf)
-    if [ -z $selection ]; then
+    if [ -z "$selection" ]; then
       return 1
     fi
 
@@ -113,59 +118,17 @@ gco () {
   fi
 }
 
-gcob() {
-  # Usage: gcob [-b base_branch] <new_branch_name>
-  # Creates a new branch off of origin/main (or specified base branch) and pushes it to origin.
-  local base_branch="main"
-  local opt
-  local OPTIND=1
-
-  while getopts ":b:" opt; do
-    case ${opt} in
-      b)
-        base_branch=$OPTARG
-        ;;
-      \?)
-        echo "Invalid option: -$OPTARG" >&2
-        return 1
-        ;;
-      :)
-        echo "Option -$OPTARG requires an argument." >&2
-        return 1
-        ;;
-    esac
-  done
-  shift $((OPTIND -1))
-
-  local name="$1"
-  if [[ -z "$name" ]]; then
-    echo "usage: gcob [-b base_branch] <branch-name>" >&2
-    return 2
-  fi
-  git rev-parse --git-dir >/dev/null 2>&1 || { echo "not a git repo" >&2; return 2; }
-  git fetch origin "$base_branch" || return 1
-  if git show-ref --verify --quiet "refs/heads/$name"; then
-    echo "local branch exists: $name" >&2
-    return 1
-  fi
-  if git ls-remote --heads origin "$name" | grep -q .; then
-    echo "remote branch exists: origin/$name" >&2
-    return 1
-  fi
-  git switch -c "$name" "origin/$base_branch" || return 1
-  git push -u origin "$name"
-}
-
+# gpu - push current branch to origin with upstream tracking
 gpu () {
   git push -u origin $(get_current_branch)
 }
 
-gpu! () {
+# gpuf - force push current branch to origin with upstream tracking
+gpuf () {
   git push -uf origin $(get_current_branch)
 }
 
-# gdpu! - delete remote branch
-# Usage: gdpu! [branch] - deletes branch from origin (defaults to current branch)
+# gdpu! [branch] - delete branch from origin (defaults to current branch)
 gdpu! () {
   local branch="${1:-$(get_current_branch)}"
   git push origin --delete "$branch"
@@ -240,6 +203,8 @@ alias gs="git status"
 alias gcp="git cherry-pick"
 alias gw="git worktree"
 alias gwl="git worktree list"
+alias glo="git log --oneline"
+alias gl3="git log -3"
 
 alias brew64="arch -x86_64 brew"
 
