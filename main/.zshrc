@@ -9,7 +9,7 @@ export DOTFILES="$DEV/dotfiles"
 export PLATFORM=$(uname -s)
 export EDITOR=vim
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 
 if [ $(uname -p) = 'arm' ]; then
