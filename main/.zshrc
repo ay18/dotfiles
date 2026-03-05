@@ -21,12 +21,17 @@ fi
 if [ "$ARM" = true ]; then
   export PATH=/opt/homebrew/bin:$PATH
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
 if [ "$PLATFORM" = 'Linux' ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  . /home/linuxbrew/.linuxbrew/opt/asdf/libexec/asdf.sh
+fi
+
+# Runtime version manager (mise)
+if [[ "$(uname -m)" == "arm64" ]]; then
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+elif [[ -f /home/linuxbrew/.linuxbrew/bin/mise ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/mise activate zsh)"
 fi
 
 # brew autocomplete
