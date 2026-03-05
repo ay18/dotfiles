@@ -250,6 +250,3 @@ precmd() {
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export PATH="$HOME/.local/bin:$PATH"
-
-# OpenClaw Completion
-source "/Users/andyyee/.openclaw/completions/openclaw.zsh"
