@@ -8,7 +8,7 @@ brew "direnv"
 brew "npm"
 brew "git"
 brew "tmux"
-brew "asdf"
+brew "mise"
 brew "grep"
 
 # fonts
